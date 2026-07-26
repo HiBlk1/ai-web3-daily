@@ -3,40 +3,360 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 与 Web3 行业日报</title>
+<title>【HiBlock】AI 与 Web3 行业日报</title>
+
+<!-- ===== SEO Meta ===== -->
+<meta name="description" content="HiBlock AI 与 Web3 行业日报：每日覆盖 AI 与区块链领域的产品发布、融资并购、技术突破与监管动态。中英双语，附数据图表与趋势点评，每日 08:00 自动更新。">
+<meta name="keywords" content="HiBlock,AI日报,Web3,区块链,人工智能,加密货币,融资,大模型,DeepSeek,OpenAI,Anthropic,每日资讯">
+<meta name="author" content="HiBlock">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://hiblk1.github.io/ai-web3-daily/">
+
+<!-- ===== Open Graph ===== -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HiBlock · AI & Web3 行业日报">
+<meta property="og:title" content="【HiBlock】AI 与 Web3 行业日报">
+<meta property="og:description" content="每日覆盖 AI 与区块链领域的产品发布、融资并购、技术突破与监管动态。中英双语，附数据图表与趋势点评。">
+<meta property="og:url" content="https://hiblk1.github.io/ai-web3-daily/">
+<meta property="og:image" content="https://hiblk1.github.io/ai-web3-daily/reports/2026-07-26/assets/og-thumbnail.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_US">
+
+<!-- ===== Twitter Card ===== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@HiBlock">
+<meta name="twitter:title" content="【HiBlock】AI 与 Web3 行业日报">
+<meta name="twitter:description" content="每日覆盖 AI 与区块链领域的产品发布、融资并购、技术突破与监管动态。中英双语，附数据图表与趋势点评。">
+<meta name="twitter:image" content="https://hiblk1.github.io/ai-web3-daily/reports/2026-07-26/assets/og-thumbnail.jpg">
+
+<!-- ===== Structured Data ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "HiBlock · AI & Web3 行业日报",
+  "url": "https://hiblk1.github.io/ai-web3-daily/",
+  "description": "每日覆盖 AI 与区块链领域的产品发布、融资并购、技术突破与监管动态。中英双语，附数据图表与趋势点评。",
+  "publisher": { "@type": "Organization", "name": "HiBlock" }
+}
+</script>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; background: #0f1117; font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
-iframe { width: 100vw; height: 100vh; border: none; display: block; }
+
+:root {
+  --bg: #0f1117;
+  --bg2: #171a22;
+  --bg3: #1f2330;
+  --ink: #e8eaf0;
+  --muted: #9aa0b0;
+  --rule: #2a2e3c;
+  --accent: #6ea8fe;
+  --accent2: #5fd6a8;
+  --accent3: #f0b86e;
+  --danger: #ff6b6b;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Hero ===== */
+.hero {
+  padding: 5rem 1.5rem 3rem;
+  text-align: center;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(110,168,254,0.10), transparent),
+    radial-gradient(ellipse 60% 40% at 90% 20%, rgba(95,214,168,0.06), transparent);
+}
+.hero .brand {
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: var(--accent2);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+}
+.hero h1 .accent { color: var(--accent2); font-style: italic; }
+.hero .lede {
+  font-size: 1rem;
+  color: var(--muted);
+  max-width: 560px;
+  margin: 0 auto;
+}
+.hero .date-line {
+  font-size: 0.8rem;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  font-family: 'GeistMono', 'JetBrains Mono', monospace;
+  margin-top: 1.2rem;
+  text-transform: uppercase;
+}
+
+/* ===== Preview Cards ===== */
+.cards-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem 4rem;
+}
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 760px;
+  width: 100%;
+}
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 40px rgba(110,168,254,0.12);
+}
+.card .preview {
+  height: 200px;
+  background: var(--bg3);
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.card .preview .thumb {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 300;
+}
+.card.zh .preview { background: linear-gradient(135deg, rgba(110,168,254,0.08), rgba(95,214,168,0.04)); }
+.card.en .preview { background: linear-gradient(135deg, rgba(95,214,168,0.08), rgba(240,184,110,0.04)); }
+.card .preview .lang-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-family: 'GeistMono', monospace;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.card.zh .lang-badge { background: rgba(110,168,254,0.2); color: var(--accent); }
+.card.en .lang-badge { background: rgba(95,214,168,0.2); color: var(--accent2); }
+
+.card .body {
+  padding: 1.4rem 1.3rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.card .body h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+.card .body p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.55;
+  flex: 1;
+}
+.card .body .enter {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.card.zh .enter { color: var(--accent); }
+.card.en .enter { color: var(--accent2); }
+.card .body .enter .arrow {
+  transition: transform 0.2s;
+}
+.card:hover .body .enter .arrow {
+  transform: translateX(4px);
+}
+
+/* ===== Meta Strip ===== */
+.meta-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.meta-strip span { display: inline-flex; align-items: center; gap: 0.4rem; }
+.meta-strip .dot { width: 6px; height: 6px; border-radius: 50%; }
+
+/* ===== Loading ===== */
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  display: none;
+}
+.loading.show { display: block; }
+
+/* ===== Footer ===== */
+footer {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border-top: 1px solid var(--rule);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+footer a { color: var(--accent); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  .cards { grid-template-columns: 1fr; }
+  .hero { padding: 3.5rem 1.5rem 2rem; }
+  .meta-strip { gap: 1rem; }
+}
 </style>
 </head>
 <body>
-<iframe id="frame" src="about:blank"></iframe>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="brand">HiBlock</div>
+  <h1>AI 与 Web3 行业 <span class="accent">热点日报</span></h1>
+  <p class="lede">覆盖海内外 AI 与区块链领域的产品发布、融资并购、技术突破与监管动态。选择语言版本进入完整报告。</p>
+  <div class="date-line" id="dateLine">— · —</div>
+</header>
+
+<!-- ===== PREVIEW CARDS ===== -->
+<div class="cards-wrap">
+  <div class="cards">
+    <a class="card zh" id="cardZh" href="#">
+      <div class="preview">
+        <span class="lang-badge">中文</span>
+        <div class="thumb">中文</div>
+      </div>
+      <div class="body">
+        <h2>中文版报告</h2>
+        <p>12 条要闻 · 4 张数据图表 · 融资并购 · 技术突破 · 监管动态。人民币计价，聚焦国内外 AI 与 Web3 行业。</p>
+        <span class="enter">查看完整报告 <span class="arrow">→</span></span>
+      </div>
+    </a>
+    <a class="card en" id="cardEn" href="#">
+      <div class="preview">
+        <span class="lang-badge">EN</span>
+        <div class="thumb">EN</div>
+      </div>
+      <div class="body">
+        <h2>English Report</h2>
+        <p>12 key stories · 4 data charts · Funding &amp; M&amp;A · Tech breakthroughs · Regulatory updates. USD-denominated, covering global AI and Web3.</p>
+        <span class="enter">View full report <span class="arrow">→</span></span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ===== META STRIP ===== -->
+<div class="meta-strip" id="metaStrip">
+  <span><span class="dot" style="background:var(--accent)"></span>AI 要闻 7 条</span>
+  <span><span class="dot" style="background:var(--accent2)"></span>Web3 要闻 5 条</span>
+  <span><span class="dot" style="background:var(--accent3)"></span>融资合计 &gt; $11.8B</span>
+  <span><span class="dot" style="background:var(--danger)"></span>监管里程碑 4 项</span>
+</div>
+
+<div class="loading" id="loading">正在检测最新报告...</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>本页面由 HiBlock 自动维护 · 每日 08:00（北京时间）更新 · <a href="reports/latest.html">历史归档</a></p>
+</footer>
+
 <script>
-// 自动重定向到最新的日报页面
-// 逻辑：以今天日期（亚洲/上海时区）为默认，若该报告不存在则回退到 index 列表
 (function() {
-  // 获取上海时区今天的日期 YYYY-MM-DD
+  // 获取上海时区今天的日期
   var now = new Date();
   var shanghaiDate = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Shanghai' }));
   var y = shanghaiDate.getFullYear();
   var m = String(shanghaiDate.getMonth() + 1).padStart(2, '0');
   var d = String(shanghaiDate.getDate()).padStart(2, '0');
   var todaySlug = y + '-' + m + '-' + d;
-  var todayPath = 'reports/' + todaySlug + '/ai-web3-daily-' + m + d + '.html';
+  var mmdd = m + d;
 
-  // 尝试加载今日报告；失败则回退到 reports 列表
-  fetch(todayPath, { method: 'HEAD' })
+  // 星期
+  var weekdays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+  var weekday = weekdays[shanghaiDate.getDay()];
+
+  // 显示日期
+  document.getElementById('dateLine').textContent =
+    y + '.' + m + '.' + d + ' · ' + weekday + ' · ASIA/SHANGHAI';
+
+  // 构建今日报告路径
+  var zhPath = 'reports/' + todaySlug + '/ai-web3-daily-' + mmdd + '.html';
+  var enPath = 'reports/' + todaySlug + '/ai-web3-daily-' + mmdd + '-en.html';
+
+  // 检测今日中文报告是否存在
+  fetch(zhPath, { method: 'HEAD' })
     .then(function(res) {
       if (res.ok) {
-        document.getElementById('frame').src = todayPath;
+        document.getElementById('cardZh').href = zhPath;
       } else {
-        // 回退：加载最新的可用报告（通过目录索引或固定最新页）
-        document.getElementById('frame').src = 'reports/latest.html';
+        // 回退到归档列表
+        document.getElementById('cardZh').href = 'reports/latest.html';
       }
     })
     .catch(function() {
-      document.getElementById('frame').src = 'reports/latest.html';
+      document.getElementById('cardZh').href = 'reports/latest.html';
+    });
+
+  // 检测今日英文报告是否存在
+  fetch(enPath, { method: 'HEAD' })
+    .then(function(res) {
+      if (res.ok) {
+        document.getElementById('cardEn').href = enPath;
+      } else {
+        // 回退到归档列表
+        document.getElementById('cardEn').href = 'reports/latest.html';
+      }
+    })
+    .catch(function() {
+      document.getElementById('cardEn').href = 'reports/latest.html';
     });
 })();
 </script>
