@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>【HiBlock】AI 与 Web3 行业日报</title>
+<title>【HiBlock】AI 与 Web3 行业日报 | AI & Web3 Industry Daily</title>
 
 <!-- ===== SEO Meta ===== -->
-<meta name="description" content="HiBlock AI 与 Web3 行业日报：每日覆盖 AI 与区块链领域的产品发布、融资并购、技术突破与监管动态。中英双语，附数据图表与趋势点评，每日 08:00 自动更新。">
-<meta name="keywords" content="HiBlock,AI日报,Web3,区块链,人工智能,加密货币,融资,大模型,DeepSeek,OpenAI,Anthropic,每日资讯">
+<meta name="description" content="HiBlock AI 与 Web3 行业日报：每日覆盖 AI 与区块链领域的产品发布、融资并购、技术突破与监管动态。中英双语，附数据图表与趋势点评，每日 08:00 自动更新。 | HiBlock AI & Web3 Industry Daily: Covering product launches, funding & M&A, tech breakthroughs, and regulatory updates in AI and blockchain. Bilingual, with data charts and trend analysis, updated daily at 08:00.">
+<meta name="keywords" content="HiBlock,AI日报,Web3,区块链,人工智能,加密货币,融资,大模型,DeepSeek,OpenAI,Anthropic,每日资讯,AI daily,blockchain,cryptocurrency,LLM,funding">
 <meta name="author" content="HiBlock">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://hiblk1.github.io/ai-web3-daily/">
@@ -15,10 +15,12 @@
 <!-- ===== Open Graph ===== -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="HiBlock · AI & Web3 行业日报">
-<meta property="og:title" content="【HiBlock】AI 与 Web3 行业日报">
-<meta property="og:description" content="每日覆盖 AI 与区块链领域的产品发布、融资并购、技术突破与监管动态。中英双语，附数据图表与趋势点评。">
+<meta property="og:title" content="【HiBlock】AI 与 Web3 行业日报 | AI & Web3 Industry Daily">
+<meta property="og:description" content="每日覆盖 AI 与区块链领域的产品发布、融资并购、技术突破与监管动态。中英双语，附数据图表与趋势点评。 | Daily coverage of AI and blockchain: product launches, funding & M&A, tech breakthroughs, and regulatory updates. Bilingual, with data charts and trend analysis.">
 <meta property="og:url" content="https://hiblk1.github.io/ai-web3-daily/">
-<meta property="og:image" content="https://hiblk1.github.io/ai-web3-daily/reports/2026-07-26/assets/og-thumbnail.jpg">
+<meta property="og:image" content="https://hiblk1.github.io/ai-web3-daily/og-image.jpg">
+<meta property="og:image:secure_url" content="https://hiblk1.github.io/ai-web3-daily/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="zh_CN">
@@ -27,9 +29,9 @@
 <!-- ===== Twitter Card ===== -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@HiBlock">
-<meta name="twitter:title" content="【HiBlock】AI 与 Web3 行业日报">
-<meta name="twitter:description" content="每日覆盖 AI 与区块链领域的产品发布、融资并购、技术突破与监管动态。中英双语，附数据图表与趋势点评。">
-<meta name="twitter:image" content="https://hiblk1.github.io/ai-web3-daily/reports/2026-07-26/assets/og-thumbnail.jpg">
+<meta name="twitter:title" content="【HiBlock】AI 与 Web3 行业日报 | AI & Web3 Industry Daily">
+<meta name="twitter:description" content="每日覆盖 AI 与区块链领域的产品发布、融资并购、技术突破与监管动态。中英双语，附数据图表与趋势点评。 | Daily coverage of AI and blockchain: product launches, funding & M&A, tech breakthroughs, and regulatory updates.">
+<meta name="twitter:image" content="https://hiblk1.github.io/ai-web3-daily/og-image.jpg">
 
 <!-- ===== Structured Data ===== -->
 <script type="application/ld+json">
@@ -38,7 +40,7 @@
   "@type": "WebSite",
   "name": "HiBlock · AI & Web3 行业日报",
   "url": "https://hiblk1.github.io/ai-web3-daily/",
-  "description": "每日覆盖 AI 与区块链领域的产品发布、融资并购、技术突破与监管动态。中英双语，附数据图表与趋势点评。",
+  "description": "每日覆盖 AI 与区块链领域的产品发布、融资并购、技术突破与监管动态。中英双语，附数据图表与趋势点评。 | Daily coverage of AI and blockchain: product launches, funding & M&A, tech breakthroughs, and regulatory updates. Bilingual, with data charts and trend analysis.",
   "publisher": { "@type": "Organization", "name": "HiBlock" }
 }
 </script>
@@ -96,11 +98,26 @@ body {
   margin-bottom: 0.8rem;
 }
 .hero h1 .accent { color: var(--accent2); font-style: italic; }
+.hero h1 .en {
+  display: block;
+  font-size: clamp(1rem, 2.2vw, 1.4rem);
+  color: var(--muted);
+  font-weight: 300;
+  font-style: italic;
+  margin-top: 0.4rem;
+  letter-spacing: 0.01em;
+}
 .hero .lede {
   font-size: 1rem;
   color: var(--muted);
   max-width: 560px;
   margin: 0 auto;
+}
+.hero .lede .en {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.88rem;
+  opacity: 0.85;
 }
 .hero .date-line {
   font-size: 0.8rem;
@@ -225,6 +242,7 @@ body {
 }
 .meta-strip span { display: inline-flex; align-items: center; gap: 0.4rem; }
 .meta-strip .dot { width: 6px; height: 6px; border-radius: 50%; }
+.meta-strip .en { opacity: 0.7; font-size: 0.72rem; }
 
 /* ===== Loading ===== */
 .loading {
@@ -246,6 +264,7 @@ footer {
 }
 footer a { color: var(--accent); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
+footer .en { display: block; margin-top: 0.4rem; opacity: 0.75; font-size: 0.72rem; }
 
 /* ===== Responsive ===== */
 @media (max-width: 640px) {
@@ -260,8 +279,8 @@ footer a:hover { text-decoration: underline; }
 <!-- ===== HERO ===== -->
 <header class="hero">
   <div class="brand">HiBlock</div>
-  <h1>AI 与 Web3 行业 <span class="accent">热点日报</span></h1>
-  <p class="lede">覆盖海内外 AI 与区块链领域的产品发布、融资并购、技术突破与监管动态。选择语言版本进入完整报告。</p>
+  <h1>AI 与 Web3 行业 <span class="accent">热点日报</span><span class="en">AI &amp; Web3 Industry <span class="accent">Daily Briefing</span></span></h1>
+  <p class="lede">覆盖海内外 AI 与区块链领域的产品发布、融资并购、技术突破与监管动态。选择语言版本进入完整报告。<span class="en">Covering product launches, funding &amp; M&amp;A, technical breakthroughs, and regulatory developments across the global AI and blockchain sectors. Choose a language version to enter the full report.</span></p>
   <div class="date-line" id="dateLine">— · —</div>
 </header>
 
@@ -295,17 +314,17 @@ footer a:hover { text-decoration: underline; }
 
 <!-- ===== META STRIP ===== -->
 <div class="meta-strip" id="metaStrip">
-  <span><span class="dot" style="background:var(--accent)"></span>AI 要闻 7 条</span>
-  <span><span class="dot" style="background:var(--accent2)"></span>Web3 要闻 5 条</span>
-  <span><span class="dot" style="background:var(--accent3)"></span>融资合计 &gt; $11.8B</span>
-  <span><span class="dot" style="background:var(--danger)"></span>监管里程碑 4 项</span>
+  <span><span class="dot" style="background:var(--accent)"></span>AI 要闻 7 条 <span class="en">/ 7 AI stories</span></span>
+  <span><span class="dot" style="background:var(--accent2)"></span>Web3 要闻 5 条 <span class="en">/ 5 Web3 stories</span></span>
+  <span><span class="dot" style="background:var(--accent3)"></span>融资合计 &gt; $11.8B <span class="en">/ Total funding</span></span>
+  <span><span class="dot" style="background:var(--danger)"></span>监管里程碑 4 项 <span class="en">/ 4 regulatory milestones</span></span>
 </div>
 
-<div class="loading" id="loading">正在检测最新报告...</div>
+<div class="loading" id="loading">正在检测最新报告... <span class="en">Detecting latest reports...</span></div>
 
 <!-- ===== FOOTER ===== -->
 <footer>
-  <p>本页面由 HiBlock 自动维护 · 每日 08:00（北京时间）更新 · <a href="reports/latest.html">历史归档</a></p>
+  <p>本页面由 HiBlock 自动维护 · 每日 08:00（北京时间）更新 · <a href="reports/latest.html">历史归档</a><span class="en">Auto-maintained by HiBlock · Updated daily at 08:00 (Beijing Time) · <a href="reports/latest.html">Archive</a></span></p>
 </footer>
 
 <script>
