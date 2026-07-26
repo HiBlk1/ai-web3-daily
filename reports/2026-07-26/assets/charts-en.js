@@ -1,4 +1,5 @@
 // assets/charts-en.js
+// Exchange rate: 1 USD = 6.7939 CNY (CFETS central parity, July 24, 2026)
 (function() {
   var style = getComputedStyle(document.documentElement);
   var accent = style.getPropertyValue('--accent').trim();
@@ -63,7 +64,7 @@
   window.addEventListener('resize', function() { chart1.resize(); });
 
   // ===== Chart 2: Major AI Funding Rounds This Week (USD Billion) =====
-  // Converted from CNY at 1 USD ≈ 7.15 CNY
+  // CNY amounts converted at 1 USD = 6.7939 CNY (CFETS, July 24, 2026)
   var chart2 = echarts.init(document.getElementById('chart-funding'), null, { renderer: 'svg' });
   chart2.setOption({
     animation: false,
@@ -86,12 +87,12 @@
     series: [{
       type: 'bar',
       data: [
-        { value: 7.0, itemStyle: { color: accent } },
-        { value: 2.66, itemStyle: { color: accent2 } },
-        { value: 0.42, itemStyle: { color: accent3 } },
-        { value: 0.21, itemStyle: { color: accent3 } },
-        { value: 0.20, itemStyle: { color: muted } },
-        { value: 0.14, itemStyle: { color: muted } }
+        { value: 7.36, itemStyle: { color: accent } },
+        { value: 2.80, itemStyle: { color: accent2 } },
+        { value: 0.44, itemStyle: { color: accent3 } },
+        { value: 0.22, itemStyle: { color: accent3 } },
+        { value: 0.21, itemStyle: { color: muted } },
+        { value: 0.15, itemStyle: { color: muted } }
       ],
       barWidth: '50%',
       label: {
@@ -108,6 +109,7 @@
   window.addEventListener('resize', function() { chart2.resize(); });
 
   // ===== Chart 3: Monthly Crypto VC Funding Trend (USD Million) =====
+  // Original data in hundred-million USD (亿美元), converted to $M
   var chart3 = echarts.init(document.getElementById('chart-crypto-funding'), null, { renderer: 'svg' });
   chart3.setOption({
     animation: false,
@@ -128,7 +130,7 @@
     yAxis: Object.assign({ type: 'value', name: '$M', nameTextStyle: { color: muted, fontSize: 11 } }, axisStyle()),
     series: [{
       type: 'line',
-      data: [285, 312, 389, 221, 122],
+      data: [2850, 3120, 3890, 2210, 1220],
       smooth: true,
       symbol: 'circle',
       symbolSize: 8,
@@ -156,6 +158,7 @@
   window.addEventListener('resize', function() { chart3.resize(); });
 
   // ===== Chart 4: BTC Spot ETF Fund Flows (Last 30 Days, USD Million) =====
+  // Original data in hundred-million USD (亿美元), converted to $M
   var chart4 = echarts.init(document.getElementById('chart-etf'), null, { renderer: 'svg' });
   chart4.setOption({
     animation: false,
@@ -178,13 +181,13 @@
     series: [{
       type: 'bar',
       data: [
-        { value: 32, itemStyle: { color: accent2 } },
-        { value: -18, itemStyle: { color: danger } },
-        { value: 15, itemStyle: { color: accent2 } },
-        { value: -24, itemStyle: { color: danger } },
-        { value: -11, itemStyle: { color: danger } },
-        { value: 8, itemStyle: { color: accent2 } },
-        { value: -24, itemStyle: { color: danger } }
+        { value: 320, itemStyle: { color: accent2 } },
+        { value: -180, itemStyle: { color: danger } },
+        { value: 150, itemStyle: { color: accent2 } },
+        { value: -240, itemStyle: { color: danger } },
+        { value: -110, itemStyle: { color: danger } },
+        { value: 80, itemStyle: { color: accent2 } },
+        { value: -240, itemStyle: { color: danger } }
       ],
       barWidth: '48%',
       label: {
