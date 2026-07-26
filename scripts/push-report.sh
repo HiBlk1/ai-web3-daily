@@ -52,6 +52,7 @@ DEST_DIR="$REPO_ROOT/reports/$DATE_SLUG"
 # 从日期生成 MMDD 后缀（用于文件名）
 DATE_MMDD="${DATE_SLUG:5:2}${DATE_SLUG:8:2}"
 HTML_FILENAME="ai-web3-daily-${DATE_MMDD}.html"
+HTML_FILENAME_EN="ai-web3-daily-${DATE_MMDD}-en.html"
 
 echo "==> 源目录:   $SRC_DIR"
 echo "==> 目标目录: $DEST_DIR"
@@ -69,8 +70,11 @@ ls -1 "$DEST_DIR"
 
 # 确认 HTML 文件存在
 if [ ! -f "$DEST_DIR/$HTML_FILENAME" ]; then
-  echo "    警告: 预期的 HTML 文件 $HTML_FILENAME 不存在，列出目录内容供排查:"
+  echo "    警告: 预期的中文 HTML 文件 $HTML_FILENAME 不存在，列出目录内容供排查:"
   ls -la "$DEST_DIR"
+fi
+if [ ! -f "$DEST_DIR/$HTML_FILENAME_EN" ]; then
+  echo "    提示: 英文版 HTML 文件 $HTML_FILENAME_EN 不存在，本次仅部署中文版"
 fi
 
 # ===== 2. 更新 latest.html 索引（在列表顶部插入新条目）=====
@@ -95,7 +99,13 @@ esac
 
 NEW_ENTRY="    <li>
       <a href=\"${DATE_SLUG}/${HTML_FILENAME}\">
-        <span>${YEAR} 年 ${MONTH_NUM} 月 ${DAY_NUM} 日 · ${WEEK_CN}</span>
+        <span class=\"row-left\">
+          <span>${YEAR} 年 ${MONTH_NUM} 月 ${DAY_NUM} 日 · ${WEEK_CN}</span>
+          <span class=\"lang-tags\">
+            <a href=\"${DATE_SLUG}/${HTML_FILENAME}\">中文</a>
+            <a href=\"${DATE_SLUG}/${HTML_FILENAME_EN}\">EN</a>
+          </span>
+        </span>
         <span><span class=\"date\">${DATE_SLUG}</span> <span class=\"arrow\">→</span></span>
       </a>
     </li>"

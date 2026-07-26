@@ -344,6 +344,18 @@ sup a:hover { text-decoration: underline; }
   line-height: 1.6;
 }
 
+/* ===== Lang Switch ===== */
+.lang-switch {
+  display: inline-flex; gap: 0; border: 1px solid var(--rule);
+  border-radius: 6px; overflow: hidden; margin-top: 1.5rem; font-size: 0.8rem;
+}
+.lang-switch a {
+  padding: 0.35rem 0.9rem; color: var(--muted); text-decoration: none;
+  font-family: var(--mono); letter-spacing: 0.05em; transition: all 0.2s;
+}
+.lang-switch a.active { background: var(--accent); color: var(--bg); }
+.lang-switch a:not(.active):hover { background: var(--bg2); color: var(--ink); }
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .stats-strip { grid-template-columns: repeat(2, 1fr); }
@@ -367,6 +379,10 @@ sup a:hover { text-decoration: underline; }
       <span><span class="dot" style="background:var(--accent2)"></span>Web3 要闻 5 条</span>
       <span><span class="dot" style="background:var(--accent3)"></span>融资合计 &gt; 800 亿元</span>
       <span><span class="dot" style="background:var(--danger)"></span>监管里程碑 4 项</span>
+    </div>
+    <div class="lang-switch">
+      <a href="ai-web3-daily-0726.html" class="active">中文</a>
+      <a href="ai-web3-daily-0726-en.html">EN</a>
     </div>
   </div>
 </header>
