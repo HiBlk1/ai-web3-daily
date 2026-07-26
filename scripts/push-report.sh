@@ -165,14 +165,32 @@ git push "$PUSH_URL" HEAD:"GH_BRANCH" 2>&1 | sed "s|$GH_TOKEN|***TOKEN***|g" || 
 }
 echo "    推送成功"
 
-# ===== 5. 完成 =====
+# ===== 5. 同步部署到 Cloudflare Pages =====
 echo ""
-echo "[5/5] 部署完成 ✓"
+echo "[5/6] 同步部署到 Cloudflare Pages..."
+
+if [ -n "${CLOUDFLARE_API_TOKEN:-}" ] && [ -n "${CLOUDFLARE_ACCOUNT_ID:-}" ]; then
+  npx wrangler pages deploy "$REPO_ROOT" \
+    --project-name ai-web3-daily \
+    --branch main \
+    --commit-message "Auto deploy: $DATE_SLUG" 2>&1 || {
+    echo "    Cloudflare Pages 部署失败，不影响 GitHub Pages 部署结果"
+  }
+  echo "    Cloudflare Pages 部署完成"
+else
+  echo "    跳过: 未设置 CLOUDFLARE_API_TOKEN 或 CLOUDFLARE_ACCOUNT_ID 环境变量"
+  echo "    如需同步部署 Cloudflare Pages，请设置这两个环境变量"
+fi
+
+# ===== 6. 完成 =====
 echo ""
-echo "报告将在 1-2 分钟内通过 GitHub Pages 生效。"
+echo "[6/6] 部署完成 ✓"
+echo ""
+echo "报告将在 1-2 分钟内通过 GitHub Pages 生效，Cloudflare Pages 即时生效。"
 echo "访问地址:"
-echo "  - 今日报告: https://<你的GitHub用户名>.github.io/ai-web3-daily/"
-echo "  - 历史归档: https://<你的GitHub用户名>.github.io/ai-web3-daily/reports/latest.html"
+echo "  GitHub Pages:  https://<你的GitHub用户名>.github.io/ai-web3-daily/"
+echo "  Cloudflare:    https://ai-web3-daily.pages.dev/"
+echo "  历史归档:      https://ai-web3-daily.pages.dev/reports/latest.html"
 echo ""
 echo "Wix 嵌入地址（iframe src）:"
-echo "  https://<你的GitHub用户名>.github.io/ai-web3-daily/"
+echo "  https://ai-web3-daily.pages.dev/"
