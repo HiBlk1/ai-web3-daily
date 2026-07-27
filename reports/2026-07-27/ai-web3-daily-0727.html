@@ -12,6 +12,8 @@
 <meta name="author" content="HiBlock">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://hiblk1.github.io/ai-web3-daily/reports/2026-07-27/ai-web3-daily-0727.html">
+<link rel="alternate" hreflang="zh-CN" href="https://hiblk1.github.io/ai-web3-daily/reports/2026-07-27/ai-web3-daily-0727.html">
+<link rel="alternate" hreflang="en" href="https://hiblk1.github.io/ai-web3-daily/reports/2026-07-27/ai-web3-daily-0727-en.html">
 
 <!-- ===== Open Graph ===== -->
 <meta property="og:type" content="article">
@@ -215,6 +217,54 @@ sup a:hover { text-decoration: underline; }
 .about-hiblock p + p { margin-top: 0.6rem; }
 
 /* ===== Responsive ===== */
+
+/* ===== Page Actions ===== */
+.page-actions {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(15,17,23,0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+.page-actions .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.page-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  color: var(--muted);
+  text-decoration: none;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  transition: all 0.2s ease;
+}
+.page-actions a.active,
+.page-actions a:hover {
+  color: var(--bg);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.page-actions a.home { margin-right: auto; }
+.page-actions a.cloudflare { color: var(--accent2); }
+.page-actions a.cloudflare:hover { color: var(--bg); background: var(--accent2); border-color: var(--accent2); }
+@media (max-width: 768px) {
+  .page-actions .wrap { justify-content: flex-start; }
+  .page-actions a.home { margin-right: 0; }
+}
+
 @media (max-width: 768px) {
   .stats-strip { grid-template-columns: repeat(2, 1fr); }
   .two-col { grid-template-columns: 1fr; }
@@ -225,6 +275,15 @@ sup a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
+
+<nav class="page-actions">
+  <div class="wrap">
+    <a class="home" href="../../index.html">← 回主页</a>
+    <a class="active" href="ai-web3-daily-0727.html">中文</a>
+    <a href="ai-web3-daily-0727-en.html">EN</a>
+    <a class="cloudflare" href="https://ai-web3-daily.pages.dev/reports/2026-07-27/ai-web3-daily-0727.html" target="_blank" rel="noopener">Cloudflare</a>
+  </div>
+</nav>
 
 <!-- ===== HERO ===== -->
 <header class="hero">

@@ -16,6 +16,9 @@ body {
 .wrap { max-width: 720px; margin: 0 auto; }
 h1 { font-weight: 300; font-size: 1.8rem; margin-bottom: 0.5rem; color: #5fd6a8; }
 h1 .en { display: block; font-size: 1.1rem; color: #9aa0b0; font-style: italic; margin-top: 0.3rem; }
+.top-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 1.8rem; }
+.top-actions a { display: inline-flex; align-items: center; justify-content: center; padding: 0.35rem 0.8rem; border: 1px solid #2a2e3c; border-radius: 999px; color: #9aa0b0; font-size: 0.78rem; text-decoration: none; }
+.top-actions a:hover { color: #0f1117; background: #5fd6a8; border-color: #5fd6a8; }
 .sub { color: #9aa0b0; font-size: 0.95rem; margin-bottom: 2rem; }
 .sub .en { display: block; font-size: 0.85rem; opacity: 0.85; margin-top: 0.2rem; }
 ul { list-style: none; }
@@ -54,6 +57,11 @@ a .arrow { color: #5fd6a8; }
 <body>
 <div class="wrap">
   <h1>AI 与 Web3 行业日报<span class="en">AI & Web3 Industry Daily</span></h1>
+  <div class="top-actions">
+    <a href="../index.html">← 回主页 / Home</a>
+    <a href="https://ai-web3-daily.pages.dev/reports/latest.html" target="_blank" rel="noopener">Cloudflare Pages</a>
+    <a href="https://hiblk1.github.io/ai-web3-daily/reports/latest.html" target="_blank" rel="noopener">GitHub Pages</a>
+  </div>
   <p class="sub">选择日期查看完整报告（中文 / EN）<span class="en">Select a date to view the full report (CN / EN)</span></p>
   <ul>
     <!-- 推送脚本会在此列表顶部插入最新条目 -->
