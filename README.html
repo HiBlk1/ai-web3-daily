@@ -22,6 +22,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.75; padding: 3rem 1.5rem 5rem; }
 .wrap { max-width: 780px; margin: 0 auto; }
+.site-logo { display: block; width: min(210px, 58vw); height: auto; margin: 0 0 1.2rem; filter: drop-shadow(0 10px 28px rgba(95,214,168,0.14)); }
 h1 { font-family: var(--serif); font-weight: 400; font-size: 2rem; margin-bottom: 0.5rem; }
 h1 .accent { color: var(--accent2); }
 .lede { color: var(--muted); margin-bottom: 2.5rem; font-size: 1rem; }
@@ -52,6 +53,7 @@ th { color: var(--ink); font-weight: 600; }
 <body>
 <div class="wrap">
 
+<img class="site-logo" src="assets/hiblock-logo-white.png" alt="HiBlock logo">
 <h1>部署说明 · <span class="accent">AI 与 Web3 行业日报</span></h1>
 <p class="lede">基于 GitHub Pages 托管 + Wix iframe 嵌入 + TRAE 定时任务自动更新的完整方案。每日 08:00（北京时间）自动生成并发布。</p>
 

@@ -123,6 +123,13 @@ body {
   font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.2em;
   color: var(--accent); text-transform: uppercase; margin-bottom: 1.2rem;
 }
+.site-logo {
+  display: block;
+  width: min(220px, 58vw);
+  height: auto;
+  margin: 0 0 1.35rem;
+  filter: drop-shadow(0 12px 32px rgba(95,214,168,0.16));
+}
 .hero h1 {
   font-family: var(--serif); font-weight: 400;
   font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.15;
@@ -284,6 +291,7 @@ footer .sources a:hover { text-decoration: underline; }
 <!-- ===== HERO ===== -->
 <header class="hero">
   <div class="wrap">
+    <img class="site-logo" src="../../assets/hiblock-logo-white.png" alt="HiBlock logo">
     <div class="date-line">2026.07.26 · SUNDAY · ASIA/SHANGHAI</div>
     <h1>【HiBlock】AI &amp; Web3 Industry <span class="accent">Daily Briefing</span></h1>
     <p class="lede">Covering product launches, funding &amp; M&amp;A, technical breakthroughs, and regulatory developments across the global AI and blockchain sectors. Today's edition features 12 key stories sourced from 30+ official and authoritative outlets.</p>
