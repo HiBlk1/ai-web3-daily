@@ -316,7 +316,6 @@ footer .en { display: block; margin-top: 0.4rem; opacity: 0.75; font-size: 0.72r
   <div class="landing-actions">
     <a class="primary" href="reports/latest.html">历史归档 / Archive</a>
     <a href="https://hiblk1.github.io/ai-web3-daily/" target="_blank" rel="noopener">GitHub Pages</a>
-    <a href="https://ai-web3-daily.pages.dev/" target="_blank" rel="noopener">Cloudflare Pages</a>
   </div>
 </header>
 
@@ -360,7 +359,7 @@ footer .en { display: block; margin-top: 0.4rem; opacity: 0.75; font-size: 0.72r
 
 <!-- ===== FOOTER ===== -->
 <footer>
-  <p>本页面由 HiBlock 自动维护 · 每日 08:00（北京时间）更新 · <a href="reports/latest.html">历史归档</a> · <a href="https://ai-web3-daily.pages.dev/" target="_blank" rel="noopener">Cloudflare Pages</a><span class="en">Auto-maintained by HiBlock · Updated daily at 08:00 (Beijing Time) · <a href="reports/latest.html">Archive</a> · <a href="https://ai-web3-daily.pages.dev/" target="_blank" rel="noopener">Cloudflare Pages</a></span></p>
+  <p>本页面由 HiBlock 自动维护 · 每日 08:00（北京时间）更新 · <a href="reports/latest.html">历史归档</a><span class="en">Auto-maintained by HiBlock · Updated daily at 08:00 (Beijing Time) · <a href="reports/latest.html">Archive</a></span></p>
 </footer>
 
 <script>
@@ -406,7 +405,7 @@ footer .en { display: block; margin-top: 0.4rem; opacity: 0.75; font-size: 0.72r
       if (res.ok) {
         document.getElementById('cardEn').href = enPath;
       } else {
-        // 英文版缺失时，回退到中文版报告，避免 Cloudflare 入口不可打开
+        // 英文版缺失时，回退到中文版报告，避免入口不可打开
         document.getElementById('cardEn').href = zhPath;
       }
     })
