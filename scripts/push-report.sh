@@ -159,7 +159,7 @@ echo "[4/5] 推送到 GitHub..."
 REPO_PATH=$(echo "$GH_REPO" | sed 's|https://github.com/||')
 PUSH_URL="https://x-access-token:${GH_TOKEN}@github.com/${REPO_PATH}.git"
 
-git push "$PUSH_URL" HEAD:"GH_BRANCH" 2>&1 | sed "s|$GH_TOKEN|***TOKEN***|g" || {
+git push "$PUSH_URL" HEAD:"$GH_BRANCH" 2>&1 | sed "s|$GH_TOKEN|***TOKEN***|g" || {
   echo "    推送失败，请检查 GH_TOKEN 权限和网络"
   exit 1
 }
