@@ -5,8 +5,10 @@
 
 set -e
 
-PROJECT_NAME="ai-web3-daily"
+PROJECT_NAME="${CLOUDFLARE_PROJECT_NAME:-ai-web3-daily}"
 DEPLOY_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+TODAY_SLUG="$(TZ=Asia/Shanghai date '+%Y-%m-%d')"
+TODAY_MMDD="$(TZ=Asia/Shanghai date '+%m%d')"
 
 # 颜色输出
 GREEN='\033[0;32m'
@@ -40,6 +42,6 @@ npx wrangler pages deploy "$DEPLOY_DIR" \
 
 echo ""
 echo -e "${GREEN}✅ 部署完成!${NC}"
-echo -e "主域名: https://${PROJECT_NAME}.pages.dev/"
-echo -e "英文报告: https://${PROJECT_NAME}.pages.dev/reports/2026-07-26/ai-web3-daily-0726-en.html"
-echo -e "中文报告: https://${PROJECT_NAME}.pages.dev/reports/2026-07-26/ai-web3-daily-0726.html"
+echo -e "极简入口: https://${PROJECT_NAME}.pages.dev/"
+echo -e "中文报告: https://${PROJECT_NAME}.pages.dev/reports/${TODAY_SLUG}/ai-web3-daily-${TODAY_MMDD}.html"
+echo -e "英文报告: https://${PROJECT_NAME}.pages.dev/reports/${TODAY_SLUG}/ai-web3-daily-${TODAY_MMDD}-en.html"

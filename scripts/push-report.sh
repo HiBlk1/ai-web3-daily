@@ -169,9 +169,13 @@ echo "    推送成功"
 echo ""
 echo "[5/6] 同步部署到 Cloudflare Pages..."
 
+CF_PROJECT_NAME="${CLOUDFLARE_PROJECT_NAME:-ai-web3-daily}"
+CF_BASE_URL="https://${CF_PROJECT_NAME}.pages.dev"
+GH_BASE_URL="https://hiblk1.github.io/ai-web3-daily"
+
 if [ -n "${CLOUDFLARE_API_TOKEN:-}" ] && [ -n "${CLOUDFLARE_ACCOUNT_ID:-}" ]; then
   npx wrangler pages deploy "$REPO_ROOT" \
-    --project-name ai-web3-daily \
+    --project-name "$CF_PROJECT_NAME" \
     --branch main \
     --commit-message "Auto deploy: $DATE_SLUG" 2>&1 || {
     echo "    Cloudflare Pages 部署失败，不影响 GitHub Pages 部署结果"
@@ -188,13 +192,13 @@ echo "[6/6] 部署完成 ✓"
 echo ""
 echo "报告将在 1-2 分钟内通过 GitHub Pages 生效，Cloudflare Pages 即时生效。"
 echo "访问地址:"
-echo "  Cloudflare 首页:      https://ai-web3-daily.pages.dev/"
-echo "  Cloudflare 中文报告:  https://ai-web3-daily.pages.dev/reports/$DATE_SLUG/$HTML_FILENAME"
-echo "  Cloudflare 英文报告:  https://ai-web3-daily.pages.dev/reports/$DATE_SLUG/$HTML_FILENAME_EN"
-echo "  Cloudflare 历史归档:  https://ai-web3-daily.pages.dev/reports/latest.html"
-echo "  GitHub Pages 首页:    https://hiblk1.github.io/ai-web3-daily/"
-echo "  GitHub Pages 中文报告:https://hiblk1.github.io/ai-web3-daily/reports/$DATE_SLUG/$HTML_FILENAME"
-echo "  GitHub Pages 英文报告:https://hiblk1.github.io/ai-web3-daily/reports/$DATE_SLUG/$HTML_FILENAME_EN"
+echo "  极简入口:        ${CF_BASE_URL}/"
+echo "  中文报告:        ${CF_BASE_URL}/reports/$DATE_SLUG/$HTML_FILENAME"
+echo "  英文报告:        ${CF_BASE_URL}/reports/$DATE_SLUG/$HTML_FILENAME_EN"
+echo "  历史归档:        ${CF_BASE_URL}/reports/latest.html"
+echo "  GitHub 备用首页: ${GH_BASE_URL}/"
+echo "  GitHub 中文备用: ${GH_BASE_URL}/reports/$DATE_SLUG/$HTML_FILENAME"
+echo "  GitHub 英文备用: ${GH_BASE_URL}/reports/$DATE_SLUG/$HTML_FILENAME_EN"
 echo ""
 echo "Wix 嵌入地址（iframe src）:"
-echo "  https://ai-web3-daily.pages.dev/"
+echo "  ${CF_BASE_URL}/"

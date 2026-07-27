@@ -7,4 +7,4 @@ Allow: /
 User-agent: TwitterBot
 Allow: /
 
-Sitemap: https://hiblk1.github.io/ai-web3-daily/sitemap.xml
+Sitemap: https://ai-web3-daily.pages.dev/sitemap.xml
