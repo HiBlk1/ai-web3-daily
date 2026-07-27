@@ -294,7 +294,7 @@ footer .en { display: block; margin-top: 0.4rem; opacity: 0.75; font-size: 0.72r
       </div>
       <div class="body">
         <h2>中文版报告</h2>
-        <p>12 条要闻 · 4 张数据图表 · 融资并购 · 技术突破 · 监管动态。人民币计价，聚焦国内外 AI 与 Web3 行业。</p>
+        <p>13 条要闻 · 4 张数据图表 · 融资并购 · 技术突破 · 监管动态。人民币计价，聚焦国内外 AI 与 Web3 行业。</p>
         <span class="enter">查看完整报告 <span class="arrow">→</span></span>
       </div>
     </a>
@@ -305,7 +305,7 @@ footer .en { display: block; margin-top: 0.4rem; opacity: 0.75; font-size: 0.72r
       </div>
       <div class="body">
         <h2>English Report</h2>
-        <p>12 key stories · 4 data charts · Funding &amp; M&amp;A · Tech breakthroughs · Regulatory updates. USD-denominated, covering global AI and Web3.</p>
+        <p>13 key stories · 4 data charts · Funding &amp; M&amp;A · Tech breakthroughs · Regulatory updates. If the English version is not yet available, this entry opens the Chinese report.</p>
         <span class="enter">View full report <span class="arrow">→</span></span>
       </div>
     </a>
@@ -314,10 +314,10 @@ footer .en { display: block; margin-top: 0.4rem; opacity: 0.75; font-size: 0.72r
 
 <!-- ===== META STRIP ===== -->
 <div class="meta-strip" id="metaStrip">
-  <span><span class="dot" style="background:var(--accent)"></span>AI 要闻 7 条 <span class="en">/ 7 AI stories</span></span>
+  <span><span class="dot" style="background:var(--accent)"></span>AI 要闻 8 条 <span class="en">/ 8 AI stories</span></span>
   <span><span class="dot" style="background:var(--accent2)"></span>Web3 要闻 5 条 <span class="en">/ 5 Web3 stories</span></span>
-  <span><span class="dot" style="background:var(--accent3)"></span>融资合计 &gt; $11.8B <span class="en">/ Total funding</span></span>
-  <span><span class="dot" style="background:var(--danger)"></span>监管里程碑 4 项 <span class="en">/ 4 regulatory milestones</span></span>
+  <span><span class="dot" style="background:var(--accent3)"></span>融资合计 &gt; $130B <span class="en">/ Total funding & infra commitments</span></span>
+  <span><span class="dot" style="background:var(--danger)"></span>监管里程碑 3 项 <span class="en">/ 3 regulatory milestones</span></span>
 </div>
 
 <div class="loading" id="loading">正在检测最新报告... <span class="en">Detecting latest reports...</span></div>
@@ -370,12 +370,12 @@ footer .en { display: block; margin-top: 0.4rem; opacity: 0.75; font-size: 0.72r
       if (res.ok) {
         document.getElementById('cardEn').href = enPath;
       } else {
-        // 回退到归档列表
-        document.getElementById('cardEn').href = 'reports/latest.html';
+        // 英文版缺失时，回退到中文版报告，避免 Cloudflare 入口不可打开
+        document.getElementById('cardEn').href = zhPath;
       }
     })
     .catch(function() {
-      document.getElementById('cardEn').href = 'reports/latest.html';
+      document.getElementById('cardEn').href = zhPath;
     });
 })();
 </script>
