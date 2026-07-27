@@ -43,5 +43,5 @@ npx wrangler pages deploy "$DEPLOY_DIR" \
 echo ""
 echo -e "${GREEN}✅ 部署完成!${NC}"
 echo -e "极简入口: https://${PROJECT_NAME}.pages.dev/"
-echo -e "中文报告: https://${PROJECT_NAME}.pages.dev/reports/${TODAY_SLUG}/ai-web3-daily-${TODAY_MMDD}.html"
-echo -e "英文报告: https://${PROJECT_NAME}.pages.dev/reports/${TODAY_SLUG}/ai-web3-daily-${TODAY_MMDD}-en.html"
+echo -e "中文报告: https://${PROJECT_NAME}.pages.dev/reports/${TODAY_SLUG}/ai-web3-daily-${TODAY_MMDD}"
+echo -e "英文报告: https://${PROJECT_NAME}.pages.dev/reports/${TODAY_SLUG}/ai-web3-daily-${TODAY_MMDD}-en"
