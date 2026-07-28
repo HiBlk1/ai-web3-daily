@@ -2,585 +2,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI & Web3 Industry Daily | 2026-07-28</title>
-  <meta name="description" content="AI and Web3 Industry Daily for July 28, 2026: AI compute financing, frontier AI safety and regulation, tokenized markets, and crypto market moves.">
-  <meta name="keywords" content="AI Daily, Web3, blockchain, NVIDIA, OpenAI, Meta, SSI, AI Act, GPT-Red, Alpaca, BTC, ETH">
-  <meta name="author" content="HiBlock">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://ai-web3-daily.pages.dev/reports/2026-07-28/ai-web3-daily-0728-en">
-  <link rel="alternate" hreflang="zh-CN" href="https://ai-web3-daily.pages.dev/reports/2026-07-28/ai-web3-daily-0728">
-  <link rel="alternate" hreflang="en" href="https://ai-web3-daily.pages.dev/reports/2026-07-28/ai-web3-daily-0728-en">
-
-  <style>
-    @font-face {
-      font-family: 'Noto Sans CJK SC';
-      src: url('./_shared/fonts/NotoSansCJK-Regular.ttc') format('truetype');
-      font-weight: 400;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'Noto Sans CJK SC';
-      src: url('./_shared/fonts/NotoSansCJK-Bold.ttc') format('truetype');
-      font-weight: 700;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'Geist Mono';
-      src: url('./_shared/fonts/GeistMono-Regular.ttf') format('truetype');
-      font-weight: 400;
-      font-display: swap;
-    }
-  </style>
-
-  <style>
-    :root {
-      --bg: #070b14;
-      --bg2: #101827;
-      --ink: #edf5ff;
-      --muted: #98a6bb;
-      --rule: #253247;
-      --accent: #58d5ff;
-      --accent2: #b58cff;
-      --good: #74f2b8;
-      --warn: #ffd166;
-      --font: 'Noto Sans CJK SC', 'Instrument Sans', system-ui, sans-serif;
-      --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, monospace;
-      --max: 1180px;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 16px; scroll-behavior: smooth; }
-    body {
-      font-family: var(--font);
-      color: var(--ink);
-      background:
-        radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 18%, transparent), transparent 32rem),
-        radial-gradient(circle at 80% 0%, color-mix(in srgb, var(--accent2) 14%, transparent), transparent 26rem),
-        var(--bg);
-      line-height: 1.7;
-      padding: 0;
-    }
-
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    article.page {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 2rem 1rem 4rem;
-    }
-
-    header.hero {
-      min-height: 520px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
-      gap: 2rem;
-      align-items: center;
-      border-bottom: 1px solid var(--rule);
-      margin-bottom: 2rem;
-      padding: 2rem 0 3rem;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      font-family: var(--font-mono);
-      color: var(--accent);
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      font-size: .78rem;
-      margin-bottom: 1rem;
-    }
-
-    h1 {
-      font-size: clamp(2.2rem, 6vw, 5.4rem);
-      line-height: 1.02;
-      letter-spacing: -.06em;
-      max-width: 920px;
-    }
-
-    h2 {
-      font-size: clamp(1.45rem, 3vw, 2.2rem);
-      line-height: 1.18;
-      margin: 3rem 0 1rem;
-      letter-spacing: -.03em;
-    }
-
-    h3 {
-      font-size: 1.05rem;
-      margin-bottom: .35rem;
-    }
-
-    p { color: var(--muted); }
-    strong, mark.key {
-      color: var(--ink);
-      font-weight: 700;
-    }
-    mark.key { background: none; color: var(--accent); }
-
-    .lede {
-      font-size: clamp(1.05rem, 2vw, 1.35rem);
-      max-width: 780px;
-      margin-top: 1.25rem;
-      color: color-mix(in srgb, var(--ink) 86%, var(--muted));
-    }
-
-    .hero-panel {
-      position: relative;
-      min-height: 360px;
-      border: 1px solid var(--rule);
-      border-radius: 28px;
-      background: linear-gradient(145deg, color-mix(in srgb, var(--bg2) 92%, transparent), color-mix(in srgb, var(--bg2) 58%, transparent));
-      overflow: hidden;
-      box-shadow: 0 24px 80px color-mix(in srgb, var(--accent2) 14%, transparent);
-    }
-
-    .hero-panel svg {
-      width: 100%;
-      height: 100%;
-      min-height: 360px;
-      display: block;
-    }
-
-    .metrics {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      margin: 2rem 0 1rem;
-    }
-
-    .metric, .card, .news-card, .callout {
-      border: 1px solid var(--rule);
-      border-radius: 20px;
-      background: color-mix(in srgb, var(--bg2) 86%, transparent);
-      box-shadow: 0 18px 50px color-mix(in srgb, var(--bg) 70%, transparent);
-    }
-
-    .metric {
-      padding: 1.1rem;
-    }
-
-    .metric .value {
-      font-family: var(--font-mono);
-      display: block;
-      font-size: 1.65rem;
-      color: var(--accent);
-      line-height: 1.1;
-    }
-
-    .metric .label {
-      display: block;
-      margin-top: .45rem;
-      color: var(--muted);
-      font-size: .88rem;
-    }
-
-    .grid {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .grid.cols-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .news-card {
-      padding: 1.1rem;
-      display: grid;
-      gap: .7rem;
-      min-height: 230px;
-    }
-
-    .news-meta {
-      display: flex;
-      justify-content: space-between;
-      gap: .75rem;
-      align-items: center;
-      color: var(--muted);
-      font-family: var(--font-mono);
-      font-size: .74rem;
-      text-transform: uppercase;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      border: 1px solid var(--rule);
-      border-radius: 999px;
-      padding: .18rem .55rem;
-      color: var(--accent);
-      background: color-mix(in srgb, var(--accent) 8%, transparent);
-      white-space: nowrap;
-    }
-
-    .rank {
-      color: var(--accent2);
-      font-family: var(--font-mono);
-    }
-
-    .fact {
-      color: var(--ink);
-      font-size: .92rem;
-    }
-
-    .callout {
-      padding: 1.25rem;
-      margin: 1.5rem 0;
-      border-left: 4px solid var(--accent);
-    }
-
-    .chart-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .chart-figure {
-      margin: 0;
-      padding: 1rem;
-      border: 1px solid var(--rule);
-      border-radius: 20px;
-      background: color-mix(in srgb, var(--bg2) 88%, transparent);
-    }
-
-    .chart-figure.wide {
-      grid-column: 1 / -1;
-    }
-
-    .chart-figure figcaption {
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: .75rem;
-    }
-
-    .chart {
-      width: 100%;
-      min-height: 360px;
-    }
-
-    .chart.short {
-      min-height: 320px;
-    }
-
-    .table-wrap {
-      overflow-x: auto;
-      overflow-y: auto;
-      max-height: 720px;
-      border: 1px solid var(--rule);
-      border-radius: 18px;
-      background: color-mix(in srgb, var(--bg2) 86%, transparent);
-      margin-top: 1rem;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 980px;
-      font-size: .9rem;
-    }
-
-    th, td {
-      padding: .85rem;
-      border-bottom: 1px solid var(--rule);
-      vertical-align: top;
-      text-align: left;
-    }
-
-    th {
-      position: sticky;
-      top: 0;
-      background: var(--bg2);
-      color: var(--ink);
-      z-index: 1;
-    }
-
-    td {
-      color: var(--muted);
-    }
-
-    td:first-child, td:nth-child(2) {
-      color: var(--ink);
-    }
-
-    sup a {
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 0.75em;
-      font-weight: 600;
-    }
-    sup a:hover { text-decoration: underline; }
-
-    footer {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--rule);
-    }
-
-    footer .sources ol {
-      padding-left: 1.2rem;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-    footer .sources li {
-      margin-bottom: 0.75rem;
-      overflow-wrap: break-word;
-      word-break: break-all;
-    }
-    footer .sources .src-title {
-      color: var(--ink);
-      word-break: normal;
-    }
-    footer .sources .src-url {
-      display: block;
-      margin-top: 0.15rem;
-      font-size: 0.82rem;
-      color: var(--accent);
-      word-break: break-all;
-    }
-    footer .sources a { word-break: break-all; }
-
-    @media (max-width: 860px) {
-      article.page { padding: 1rem 1rem 3rem; }
-      header.hero, .grid.cols-2, .news-grid, .chart-grid {
-        grid-template-columns: 1fr;
-      }
-      header.hero { min-height: auto; }
-      .metrics { grid-template-columns: repeat(2, 1fr); }
-      .chart-figure.wide { grid-column: auto; }
-      table { min-width: 900px; }
-    }
-
-    @media (max-width: 520px) {
-      .metrics { grid-template-columns: 1fr; }
-      .news-meta { align-items: flex-start; flex-direction: column; }
-      .chart { min-height: 300px; }
-    }
-
-    @media print {
-      body { background: var(--bg); }
-      .hero-panel { box-shadow: none; }
-      a { color: var(--ink); }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HiBlock AI & Web3 Industry Daily · July 28, 2026</title>
+<meta name="description" content="13 AI and Web3 stories with data charts, market tables, and trend commentary.">
+<meta name="keywords" content="HiBlock,AI日报,Web3,人工智能,区块链,OpenAI,Nvidia,SSI,Gemini,Kimi,x402,Lido,BTC,ETH">
+<meta name="author" content="HiBlock">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ai-web3-daily.pages.dev/reports/2026-07-28/ai-web3-daily-0728-en">
+<link rel="alternate" hreflang="zh-CN" href="https://ai-web3-daily.pages.dev/reports/2026-07-28/ai-web3-daily-0728">
+<link rel="alternate" hreflang="en" href="https://ai-web3-daily.pages.dev/reports/2026-07-28/ai-web3-daily-0728-en">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="HiBlock · AI & Web3 Industry Daily">
+<meta property="og:title" content="HiBlock AI & Web3 Industry Daily · July 28, 2026">
+<meta property="og:description" content="13 AI and Web3 stories with data charts, market tables, and trend commentary.">
+<meta property="og:url" content="https://ai-web3-daily.pages.dev/reports/2026-07-28/ai-web3-daily-0728-en">
+<meta property="og:image" content="https://ai-web3-daily.pages.dev/og-image-en.jpg">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-07-28T08:00:00+08:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HiBlock AI & Web3 Industry Daily · July 28, 2026">
+<meta name="twitter:description" content="13 AI and Web3 stories with data charts, market tables, and trend commentary.">
+<meta name="twitter:image" content="https://ai-web3-daily.pages.dev/og-image-en.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"HiBlock AI & Web3 Industry Daily · July 28, 2026","description":"13 AI and Web3 stories with data charts, market tables, and trend commentary.","image":"https://ai-web3-daily.pages.dev/og-image-en.jpg","datePublished":"2026-07-28T08:00:00+08:00","dateModified":"2026-07-28T08:00:00+08:00","author":{"@type":"Organization","name":"HiBlock"},"publisher":{"@type":"Organization","name":"HiBlock"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://ai-web3-daily.pages.dev/reports/2026-07-28/ai-web3-daily-0728-en"}}</script>
+<style>
+@font-face { font-family:'InstrumentSans'; src:url('./_shared/fonts/InstrumentSans-Regular.ttf') format('truetype'); font-weight:400; font-display:swap; }
+@font-face { font-family:'InstrumentSans'; src:url('./_shared/fonts/InstrumentSans-Bold.ttf') format('truetype'); font-weight:700; font-display:swap; }
+@font-face { font-family:'InstrumentSerif'; src:url('./_shared/fonts/InstrumentSerif-Regular.ttf') format('truetype'); font-weight:400; font-display:swap; }
+@font-face { font-family:'GeistMono'; src:url('./_shared/fonts/GeistMono-Regular.ttf') format('truetype'); font-weight:400; font-display:swap; }
+:root{--bg:#0f1117;--bg2:#171a22;--bg3:#1f2330;--ink:#e8eaf0;--muted:#9aa0b0;--rule:#2a2e3c;--accent:#6ea8fe;--accent2:#5fd6a8;--accent3:#f0b86e;--danger:#ff6b6b;--serif:'InstrumentSerif',Georgia,serif;--sans:'InstrumentSans',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;--mono:'GeistMono','JetBrains Mono',monospace;}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}.wrap{max-width:980px;margin:0 auto;padding:0 1.5rem}
+.page-actions{position:sticky;top:0;z-index:20;background:rgba(15,17,23,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}.page-actions .wrap{display:flex;flex-wrap:wrap;gap:.55rem;align-items:center;justify-content:flex-end;padding-top:.75rem;padding-bottom:.75rem}.page-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:32px;padding:.3rem .8rem;border:1px solid var(--rule);border-radius:999px;color:var(--muted);text-decoration:none;font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;transition:all .2s ease}.page-actions a.active,.page-actions a:hover{color:var(--bg);background:var(--accent);border-color:var(--accent)}.page-actions a.home{margin-right:auto}
+.hero{padding:5rem 0 3.5rem;border-bottom:1px solid var(--rule);background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(110,168,254,.10),transparent),radial-gradient(ellipse 60% 40% at 90% 20%,rgba(95,214,168,.06),transparent)}.site-logo{display:block;width:min(220px,58vw);height:auto;margin:0 0 1.35rem;filter:drop-shadow(0 12px 32px rgba(95,214,168,.16))}.hero .date-line{font-family:var(--mono);font-size:.8rem;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:1.2rem}.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.15;letter-spacing:-.01em;margin-bottom:1rem}.hero h1 .accent{color:var(--accent2);font-style:italic}.hero .lede{font-size:1.08rem;color:var(--muted);max-width:760px;line-height:1.65}.hero .meta-row{display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:2rem;font-size:.82rem;color:var(--muted)}.hero .meta-row span{display:inline-flex;align-items:center;gap:.4rem}.hero .meta-row .dot{width:6px;height:6px;border-radius:50%;background:var(--accent2)}
+.stats-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:12px;overflow:hidden;margin:2.5rem 0}.stat-cell{background:var(--bg2);padding:1.4rem 1.2rem}.stat-cell .label{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem}.stat-cell .value{font-family:var(--serif);font-size:1.8rem;line-height:1.1;color:var(--ink)}.stat-cell .value .unit{font-size:.9rem;color:var(--muted);margin-left:.2rem}.stat-cell .delta{font-size:.8rem;margin-top:.3rem}.stat-cell .delta.up{color:var(--accent2)}.stat-cell .delta.down{color:var(--danger)}.stat-cell .delta.neutral{color:var(--muted)}
+section{padding:3rem 0;border-bottom:1px solid var(--rule)}.section-head{margin-bottom:1.8rem}.section-head .tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;margin-bottom:.6rem}.section-head h2{font-family:var(--serif);font-weight:400;font-size:1.9rem;line-height:1.2}.section-head .sub{color:var(--muted);font-size:.95rem;margin-top:.4rem}.news-item{display:grid;grid-template-columns:42px 1fr;gap:1.2rem;padding:1.6rem 0;border-top:1px solid var(--rule)}.news-item:first-of-type{border-top:none}.news-item .rank{font-family:var(--serif);font-size:1.6rem;color:var(--accent);line-height:1;padding-top:.1rem}.news-item .body h3{font-size:1.15rem;font-weight:700;line-height:1.4;margin-bottom:.5rem}.news-item .body h3 .cat{display:inline-block;font-family:var(--mono);font-size:.65rem;font-weight:400;letter-spacing:.08em;padding:2px 8px;border-radius:4px;margin-left:.6rem;vertical-align:middle;text-transform:uppercase}.cat.ai{background:rgba(110,168,254,.15);color:var(--accent)}.cat.web3{background:rgba(95,214,168,.15);color:var(--accent2)}.cat.funding{background:rgba(240,184,110,.15);color:var(--accent3)}.cat.reg{background:rgba(255,107,107,.12);color:var(--danger)}.cat.tech{background:rgba(154,160,176,.15);color:var(--muted)}.summary{color:var(--muted);font-size:.95rem;line-height:1.68}.summary strong{color:var(--ink);font-weight:600}sup a{color:var(--accent);text-decoration:none;font-size:.75em;font-weight:600}sup a:hover{text-decoration:underline}
+.chart-figure{margin:2rem 0}.chart-figure figcaption{font-size:.9rem;font-weight:600;color:var(--ink);margin-bottom:.75rem}.chart-sub{font-size:.8rem;color:var(--muted);margin-top:.5rem}.table-wrap{overflow-x:auto;overflow-y:auto;max-height:600px;border:1px solid var(--rule);border-radius:10px;margin:1.5rem 0}table{width:100%;border-collapse:collapse;font-size:.88rem}thead{position:sticky;top:0}th{background:var(--bg3);color:var(--ink);text-align:left;padding:.75rem 1rem;font-weight:600;font-size:.8rem;border-bottom:1px solid var(--rule)}td{padding:.7rem 1rem;border-bottom:1px solid var(--rule);color:var(--muted);vertical-align:top}td:first-child{color:var(--ink);font-weight:600}td .pos{color:var(--accent2)}td .neg{color:var(--danger)}
+.trend-comment{background:linear-gradient(135deg,rgba(110,168,254,.08),rgba(95,214,168,.06));border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:10px;padding:2rem;margin:2.5rem 0}.trend-comment .tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;margin-bottom:.8rem}.trend-comment p{font-family:var(--serif);font-size:1.15rem;line-height:1.7;color:var(--ink)}.trend-comment p+p{margin-top:.8rem}.trend-comment mark.key{background:none;color:var(--accent2);font-weight:600;font-style:italic}
+footer{padding:3rem 0 4rem}footer .sources h2{font-family:var(--serif);font-weight:400;font-size:1.4rem;margin-bottom:1.2rem}footer .sources ol{padding-left:1.2rem;font-size:.82rem;color:var(--muted)}footer .sources li{margin-bottom:.5rem;overflow-wrap:break-word;word-break:break-all}footer .sources .src-title{color:var(--ink);word-break:normal}footer .sources .src-url{display:block;margin-top:.15rem;font-size:.8rem;color:var(--accent);word-break:break-all}footer .sources a{word-break:break-all;color:var(--accent);text-decoration:none}.about-hiblock{margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--rule)}.about-hiblock h2{font-family:var(--serif);font-weight:400;font-size:1.4rem;margin-bottom:1rem}.about-hiblock h2 .accent{color:var(--accent2);font-style:italic}.about-hiblock p{font-size:.9rem;color:var(--muted);line-height:1.75}
+@media(max-width:768px){.page-actions .wrap{justify-content:flex-start}.page-actions a.home{margin-right:0}.stats-strip{grid-template-columns:repeat(2,1fr)}.news-item{grid-template-columns:32px 1fr;gap:.8rem}.hero{padding:3.5rem 0 2.5rem}section{padding:2.2rem 0}table{min-width:720px}}
+</style>
 </head>
 <body>
-  <article class="page">
-    <header class="hero">
-      <div>
-        <div class="eyebrow">AI × Web3 Daily · 2026-07-28</div>
-        <h1>AI & Web3 Industry Daily</h1>
-        <p class="lede">Today’s main thread is <mark class="key">AI compute capital formation, safety and regulatory implementation, RWA, and on-chain market infrastructure</mark>. This report selects 10 verified stories; every chart uses explicit figures from the included news items.</p>
-        <div class="metrics">
-          <div class="metric"><span class="value">10</span><span class="label">Top stories included</span></div>
-          <div class="metric"><span class="value">13</span><span class="label">Referenced sources</span></div>
-          <div class="metric"><span class="value">5</span><span class="label">Items with quantified funding or market data</span></div>
-          <div class="metric"><span class="value">3</span><span class="label">Industry segments covered</span></div>
-        </div>
-      </div>
-      <div class="hero-panel" aria-label="AI and Web3 themed illustration">
-        <svg viewBox="0 0 560 520" role="img" aria-label="Illustration of AI compute, regulation, and blockchain nodes">
-          <defs>
-            <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
-              <stop stop-color="var(--accent)" />
-              <stop offset="1" stop-color="var(--accent2)" />
-            </linearGradient>
-          </defs>
-          <rect x="0" y="0" width="560" height="520" fill="transparent"/>
-          <circle cx="280" cy="260" r="158" fill="none" stroke="var(--rule)" stroke-width="1"/>
-          <circle cx="280" cy="260" r="96" fill="none" stroke="var(--rule)" stroke-width="1"/>
-          <path d="M105 272 C178 140, 382 140, 456 272 C381 390, 179 390, 105 272Z" fill="none" stroke="url(#g1)" stroke-width="2.5"/>
-          <path d="M141 366 L280 110 L419 366 Z" fill="none" stroke="var(--accent2)" stroke-width="1.6" opacity=".85"/>
-          <g fill="var(--bg2)" stroke="url(#g1)" stroke-width="2.4">
-            <circle cx="280" cy="110" r="34"/>
-            <circle cx="105" cy="272" r="30"/>
-            <circle cx="456" cy="272" r="30"/>
-            <circle cx="141" cy="366" r="28"/>
-            <circle cx="419" cy="366" r="28"/>
-            <circle cx="280" cy="260" r="46"/>
-          </g>
-          <g fill="var(--ink)" font-family="var(--font-mono)" font-size="18" text-anchor="middle">
-            <text x="280" y="116">GPU</text>
-            <text x="105" y="278">AI</text>
-            <text x="456" y="278">REG</text>
-            <text x="141" y="372">RWA</text>
-            <text x="419" y="372">L1</text>
-            <text x="280" y="266">DATA</text>
-          </g>
-          <g stroke="var(--accent)" stroke-width="1.2" opacity=".55">
-            <line x1="280" y1="144" x2="280" y2="214"/>
-            <line x1="134" y1="272" x2="234" y2="260"/>
-            <line x1="426" y1="272" x2="326" y2="260"/>
-            <line x1="164" y1="350" x2="244" y2="288"/>
-            <line x1="396" y1="350" x2="316" y2="288"/>
-          </g>
-        </svg>
-      </div>
-    </header>
-    <main>
-      <section>
-        <h2>Trend Commentary</h2>
-        <div class="callout">
-          <p>The largest variable on the AI side remains compute and capital: NVIDIA, OpenAI, Meta, and Orange all point to a shift from model-only competition toward data-center and GPU-supply competition. Regulation and safety are also intensifying, with the EU, the US, and China advancing more concrete AI risk-governance frameworks. On the Web3 side, market attention continues to center on tokenized assets, institutional on-chain trading infrastructure, and Ethereum L1 scaling.</p>
-        </div>
-      </section>
+<nav class="page-actions"><div class="wrap"><a class="home" href="../../index.html">← Home</a><a href="ai-web3-daily-0728.html">中文</a><a class="active" href="ai-web3-daily-0728-en.html">EN</a></div></nav>
+<header class="hero"><div class="wrap"><img class="site-logo" src="../../assets/hiblock-logo-white.png" alt="HiBlock logo"><div class="date-line">2026.07.28 · TUESDAY · ASIA/SHANGHAI</div><h1>HiBlock AI & Web3 Industry <span class="accent">Daily Briefing</span></h1><p class="lede">Daily coverage of product launches, funding and M&A, technical breakthroughs, regulation, market structure, and blockchain security. Today’s edition includes 13 key stories from official and authoritative sources. RMB-denominated figures use the July 28, 2026 central parity rate: <strong>1 USD = 6.7928 CNY</strong>.</p><div class="meta-row"><span><span class="dot"></span>8 AI stories</span><span><span class="dot" style="background:var(--accent2)"></span>5 Web3 stories</span><span><span class="dot" style="background:var(--accent3)"></span>AI infra commitments > $750B</span><span><span class="dot" style="background:var(--danger)"></span>$686M crypto liquidations</span></div></div></header>
+<div class="wrap"><div class="stats-strip"><div class="stat-cell"><div class="label">BTC Price</div><div class="value">63,173<span class="unit">USD</span></div><div class="delta down">-2.82% / 24h</div></div><div class="stat-cell"><div class="label">ETH Price</div><div class="value">1,872<span class="unit">USD</span></div><div class="delta down">-3.52% / 24h</div></div><div class="stat-cell"><div class="label">SSI Investment</div><div class="value">5<span class="unit">B USD</span></div><div class="delta up">Nvidia strategic deal</div></div><div class="stat-cell"><div class="label">x402 Findings</div><div class="value">31<span class="unit">vulns</span></div><div class="delta neutral">15 facilitators tested</div></div></div></div>
+<section id="ai"><div class="wrap"><div class="section-head"><div class="tag">PART 01 — ARTIFICIAL INTELLIGENCE</div><h2>AI Industry Highlights</h2><p class="sub">Funding · Safety · Product releases · Regulation · Open weights</p></div>
+<article class="news-item"><div class="rank">01</div><div class="body"><h3>Nvidia puts about $5B into SSI and ties research ambition to Vera Rubin compute<span class="cat funding">FUNDING</span></h3><p class="summary">Nvidia has agreed to invest about <strong>$5 billion</strong> in Safe Superintelligence, the startup founded by former OpenAI chief scientist Ilya Sutskever. SSI will receive access to Nvidia’s next-generation Vera Rubin platform and says its available compute could increase tenfold over the next 12 months. The deal follows roughly <strong>$3 billion</strong> in prior funding and a reported <strong>$32 billion</strong> valuation, despite the company having no public product or research output. The larger market issue is circular financing: Nvidia is also reportedly discussing up to <strong>$250 billion</strong> in guarantees for OpenAI data-center leasing, with total AI infrastructure-related commitments potentially exceeding <strong>$750 billion</strong>.<sup><a href="#cite-1">[1]</a></sup></p></div></article><article class="news-item"><div class="rank">02</div><div class="body"><h3>U.S. frontier-model review framework approaches the August 1 deadline<span class="cat reg">REGULATION</span></h3><p class="summary">The White House Office of the National Cyber Director has circulated a draft frontier AI model review framework to OpenAI, Anthropic, and Google, and the three companies jointly submitted revisions. The draft stems from a June 2 executive order that would give federal agencies up to a <strong>30-day</strong> access window before covered frontier models are released to partners, with agencies given <strong>60 days</strong> to design review procedures. The core disputes are how to define “frontier model,” whether open-weight models should receive exemptions, and how NSA and CAISI would conduct reviews.<sup><a href="#cite-2">[2]</a></sup></p></div></article><article class="news-item"><div class="rank">03</div><div class="body"><h3>OpenAI’s GPT-5.6 system card marks the model family as High in cyber and bio-chemical capability<span class="cat reg">SAFETY</span></h3><p class="summary">OpenAI’s GPT-5.6 system card describes three models: Sol as the flagship, Terra as a capability-cost balance, and Luna as the fastest high-volume option. Under the Preparedness Framework, OpenAI classifies all three as <strong>High capability</strong> in Cybersecurity and Biological/Chemical risk, though not High in AI self-improvement. Sol and Terra can find vulnerabilities and exploit components but did not complete autonomous end-to-end attacks against hardened targets. OpenAI says Sol’s cyber safeguards block roughly ten times more potentially harmful activity and that more than <strong>700,000 A100e GPU hours</strong> were used for automated jailbreak testing.<sup><a href="#cite-3">[3]</a></sup></p></div></article><article class="news-item"><div class="rank">04</div><div class="body"><h3>Google ships Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber<span class="cat ai">PRODUCT</span></h3><p class="summary">Google announced Gemini 3.6 Flash, Gemini 3.5 Flash-Lite, and Gemini 3.5 Flash Cyber on July 21. Gemini 3.6 Flash supports text, image, video, audio, and PDF inputs with up to <strong>1 million input tokens</strong> and 64,000 output tokens, and lowers output pricing to <strong>$7.50 per million tokens</strong>. Flash-Lite focuses on 350 tokens/s throughput, while Flash Cyber is trained for vulnerability discovery, verification, and remediation; in a V8 evaluation it found 55 unique confirmed issues and will initially be piloted with government agencies and trusted partners.<sup><a href="#cite-4">[4]</a></sup></p></div></article><article class="news-item"><div class="rank">05</div><div class="body"><h3>China’s open-weight model wave becomes the center of the U.S. open-source AI debate<span class="cat tech">OPEN</span></h3><p class="summary">Kimi K3 formally opened its weights on July 27 with <strong>2.8 trillion parameters</strong>; Alibaba’s Qwen3.8-Max is expected to open a <strong>2.4 trillion-parameter</strong> model, and DeepSeek-V4 is expected near month-end. The same coverage cites a researcher estimating that the U.S.-China model gap has narrowed from 6–9 months to <strong>3–5 months</strong>. On July 24, 25 U.S. technology companies including Meta, Nvidia, and Microsoft signed an open-weights letter, while OpenAI and Anthropic did not. The report also says Chinese models on OpenRouter reached <strong>36.11 trillion weekly tokens</strong>, growing for eight consecutive weeks.<sup><a href="#cite-5">[5]</a></sup></p></div></article><article class="news-item"><div class="rank">06</div><div class="body"><h3>China issues implementation guidelines for AI agents<span class="cat reg">POLICY</span></h3><p class="summary">China’s CAC, NDRC, and MIIT jointly issued guidelines for standardized application and innovative development of AI agents. The document defines AI agents as systems capable of autonomous perception, memory, decision-making, interaction, and execution. It emphasizes safety and controllability, orderly standardization, innovation-driven development, and application traction, while identifying <strong>19 typical application scenarios</strong> across scientific research, industry, consumption, public services, and governance.<sup><a href="#cite-6">[6]</a></sup></p></div></article><article class="news-item"><div class="rank">07</div><div class="body"><h3>Rules for anthropomorphic AI services reshape content trust and brand visibility<span class="cat reg">REGULATION</span></h3><p class="summary">China’s Interim Measures for AI Anthropomorphic Interactive Services took effect on July 15, targeting virtual companions, custom emotional agents, and long-term persona-based interaction services. The coverage says major model platforms have tightened custom-agent creation, while answer-generation systems are giving more weight to compliance, authenticity, authority, and structured evidence. Emotional marketing, unsourced promotion, and pure commercial copy are being downgraded in model trust pipelines.<sup><a href="#cite-7">[7]</a></sup></p></div></article><article class="news-item"><div class="rank">08</div><div class="body"><h3>AI capital chains increasingly bind chip vendors, model labs, and data centers<span class="cat tech">ANALYSIS</span></h3><p class="summary">Nvidia’s SSI investment, AMD’s strategic investment in Anthropic, and potential vendor-backed data-center guarantees show how AI financing is moving from simple equity rounds toward compute-order and leasing structures. This can ease cash-flow pressure for frontier labs, but it also makes it harder to separate end-demand from supplier-financed purchasing. Nvidia and AMD fell 4.99% and 5.17%, respectively, on the day referenced in the report, while credit markets also reacted to the growing scale of infrastructure commitments.<sup><a href="#cite-1">[1]</a></sup></p></div></article>
+<figure class="chart-figure"><figcaption>Chart 1 · AI capital and infrastructure commitments (USD billions)</figcaption><div id="chart-ai-capital" style="width:100%;min-height:360px"></div><p class="chart-sub">Sources: Phoenix / Yicai. Large infrastructure guarantees dominate equity investments.</p></figure>
+</div></section>
+<section id="web3"><div class="wrap"><div class="section-head"><div class="tag">PART 02 — WEB3 & BLOCKCHAIN</div><h2>Web3 and Blockchain Highlights</h2><p class="sub">Market moves · Ethereum staking · Payment security · On-chain finance · Regulation</p></div>
+<article class="news-item"><div class="rank">09</div><div class="body"><h3>Crypto market sells off as BTC nears $63K and over 166,000 traders are liquidated<span class="cat web3">MARKET</span></h3><p class="summary">Crypto markets weakened on July 28. CoinGabbar’s 1:30 UTC snapshot put total crypto market capitalization at <strong>$2.26 trillion</strong>, down 1.6% over 24 hours; BTC traded at $63,173.20, down 2.82%, and ETH traded at $1,872.11, down 3.52%. Phoenix, citing CoinGlass data around 11:40 Beijing time, reported about <strong>166,094 liquidated traders</strong> and roughly <strong>$686 million</strong> in 24-hour liquidations, including about $542 million in long liquidations.<sup><a href="#cite-8">[8]</a></sup><sup><a href="#cite-9">[9]</a></sup></p></div></article><article class="news-item"><div class="rank">10</div><div class="body"><h3>ETH retreats after nearing $2,000, while ETF flows and Lido still support the institutional story<span class="cat web3">ETH</span></h3><p class="summary">CoinStats reports ETH rallied to $1,971.82 on July 27 before retreating to around $1,887, with weakness attributed to FOMC-related risk-off sentiment, failed breakout momentum, and leveraged long unwinds. ETH ETFs attracted about <strong>$103.9 million</strong> in net inflows for the week of July 20–24, and Ethereum DeFi TVL stood near <strong>$41.538 billion</strong>. Lido also began moving more than <strong>8 million ETH</strong>, worth about <strong>$16 billion</strong>, onto post-Pectra 0x02 validators, which could lift 0x02 validator share from 32% to roughly 52% and reduce Ethereum’s total validator count by about one-third.<sup><a href="#cite-10">[10]</a></sup><sup><a href="#cite-11">[11]</a></sup></p></div></article><article class="news-item"><div class="rank">11</div><div class="body"><h3>x402 payment facilitators expose 31 vulnerabilities as AI-agent payments enter stress testing<span class="cat reg">SECURITY</span></h3><p class="summary">CryptoSlate reports that a July 21 study found <strong>31 previously unknown vulnerabilities</strong> across 15 x402 payment facilitators that represented 99% of observed transactions. The paper mapped 49 violation instances to four attack classes: free shopping, asset theft, service denial, and gas abuse. Researchers validated two free-shopping cases and recommended binding verification to settlement, reserving nonces, strict transaction allowlists, capped sponsored fees, and releasing services only after settlement succeeds.<sup><a href="#cite-12">[12]</a></sup></p></div></article>
 
-      <section>
-        <h2>Top Stories</h2>
-        <div class="news-grid">
-          <article class="news-card">
-            <div class="news-meta"><span class="rank">#01</span><span class="tag">AI compute financing</span></div>
-            <h3>NVIDIA and Safe Superintelligence Form Long-Term Strategic Partnership</h3>
-            <p>NVIDIA confirmed an investment in Ilya Sutskever’s SSI and access to its Vera Rubin platform, saying the partnership will help SSI increase compute capacity by an order of magnitude; media reports citing people familiar with the matter put the investment commitment at about $5 billion.<sup><a href="#cite-1">[1]</a></sup><sup><a href="#cite-2">[2]</a></sup></p>
-            <p class="fact">Key figures: official statement says compute capacity increases 10x; the dollar figure is media-reported, not officially disclosed.</p>
-          </article>
-
-          <article class="news-card">
-            <div class="news-meta"><span class="rank">#02</span><span class="tag">AI data centers</span></div>
-            <h3>NVIDIA Reportedly Negotiates Financing Guarantee for OpenAI’s 10GW Ohio Data Center</h3>
-            <p>Bloomberg reported that the guarantee could reach about $250 billion and that the project is planned to go online in 2028, but talks remain early and could fail or change.<sup><a href="#cite-3">[3]</a></sup></p>
-            <p class="fact">Key figures: 10GW data center; financing guarantee of up to about $250 billion.</p>
-          </article>
-
-          <article class="news-card">
-            <div class="news-meta"><span class="rank">#03</span><span class="tag">AI infrastructure</span></div>
-            <h3>BlackRock Completes $12.5 Billion Debt Financing for Meta’s Texas AI Data Center</h3>
-            <p>The reported project targets up to 1GW of AI compute capacity. BlackRock affiliates hold 80%, Meta holds 20%, and the debt is supported by Meta lease commitments.<sup><a href="#cite-4">[4]</a></sup></p>
-            <p class="fact">Key figures: $12.5 billion in bonds; demand reportedly reached about $20 billion.</p>
-          </article>
-
-          <article class="news-card">
-            <div class="news-meta"><span class="rank">#04</span><span class="tag">European AI cloud</span></div>
-            <h3>Orange and Morrison Plan 50:50 French Data-Center Joint Venture</h3>
-            <p>Reuters reported that the two parties plan a data-center platform for AI and cloud demand, targeting 400MW of capacity with planned investment of €3 billion, or about $3.41 billion.<sup><a href="#cite-5">[5]</a></sup></p>
-            <p class="fact">Key figures: 400MW target capacity; about €3 billion planned investment.</p>
-          </article>
-
-          <article class="news-card">
-            <div class="news-meta"><span class="rank">#05</span><span class="tag">AI safety</span></div>
-            <h3>OpenAI Releases GPT-Red to Improve Prompt-Injection Robustness with Automated Red Teaming</h3>
-            <p>OpenAI said GPT-Red reached an 84% attack success rate in an indirect prompt-injection arena, compared with 13% for human red teams, and was used to train GPT-5.6 safety.<sup><a href="#cite-6">[6]</a></sup></p>
-            <p class="fact">Key figures: GPT-Red 84% vs. human red teams 13%; vendor-reported, so independent replication remains important.</p>
-          </article>
-
-          <article class="news-card">
-            <div class="news-meta"><span class="rank">#06</span><span class="tag">AI regulation</span></div>
-            <h3>EU AI Act Enters Key 2026 Implementation Period Alongside AI-Cybersecurity Action Plan</h3>
-            <p>EU materials list transparency rules taking effect in August 2026, while high-risk system obligations extend into December 2027 and August 2028. The action plan emphasizes safe use of advanced AI, stronger cyber resilience, and broader European AI cybersecurity capacity.<sup><a href="#cite-7">[7]</a></sup><sup><a href="#cite-8">[8]</a></sup></p>
-            <p class="fact">Key figures: three action-plan objectives; multiple AI Act obligations phase in over time.</p>
-          </article>
-
-          <article class="news-card">
-            <div class="news-meta"><span class="rank">#07</span><span class="tag">China AI governance</span></div>
-            <h3>China’s Anthropomorphic AI Interaction Rules Take Effect as WAIC Statement Emphasizes Global AI Governance</h3>
-            <p>The Interim Measures for AI Anthropomorphic Interaction Services took effect on July 15, 2026, covering AI companions and services for children and elderly users. The WAIC Chair Statement highlighted classification, risk alerts, and agent boundary-setting.<sup><a href="#cite-9">[9]</a></sup><sup><a href="#cite-10">[10]</a></sup></p>
-            <p class="fact">Key figures: issued by five departments; effective date July 15, 2026.</p>
-          </article>
-
-          <article class="news-card">
-            <div class="news-meta"><span class="rank">#08</span><span class="tag">Multimodal safety</span></div>
-            <h3>FlowGuard Paper Proposes Internal Consistency Checks for Multimodal Attacks</h3>
-            <p>The arXiv paper says FlowGuard monitors cross-modal internal consistency, reducing attack success rates from above 90% to below 15% with less than 3% utility loss.<sup><a href="#cite-11">[11]</a></sup></p>
-            <p class="fact">Key figures: attack success rate from &gt;90% to &lt;15%; preprint results still require replication.</p>
-          </article>
-
-          <article class="news-card">
-            <div class="news-meta"><span class="rank">#09</span><span class="tag">Web3 funding</span></div>
-            <h3>Alpaca Raises $135 Million to Scale Tokenized Markets and AI-Native Brokerage Infrastructure</h3>
-            <p>Alpaca announced a $135 million equity financing round and $435 million in total new financing to scale API-first, agent-first brokerage infrastructure and tokenized markets.<sup><a href="#cite-12">[12]</a></sup></p>
-            <p class="fact">Key figures: $135 million equity round; $435 million total new financing.</p>
-          </article>
-
-          <article class="news-card">
-            <div class="news-meta"><span class="rank">#10</span><span class="tag">Web3 market</span></div>
-            <h3>BTC and ETH Edge Higher as Derivatives Volume Expands</h3>
-            <p>TokenPost’s market briefing showed BTC at $64,898.47, up 0.40% over 24 hours, and ETH at $1,947.74, up 1.83%, while 24-hour derivatives volume rose 118.42%.<sup><a href="#cite-13">[13]</a></sup></p>
-            <p class="fact">Key figures: BTC +0.40%; ETH +1.83%; derivatives volume +118.42%.</p>
-          </article>
-        </div>
-      </section>
-
-      <section>
-        <h2>Data Charts</h2>
-        <div class="chart-grid">
-          <figure class="chart-figure">
-            <figcaption>Distribution of Included Stories</figcaption>
-            <div id="chart-category" class="chart short"></div>
-          </figure>
-          <figure class="chart-figure">
-            <figcaption>BTC and ETH 24-Hour Price Change</figcaption>
-            <div id="chart-crypto" class="chart short"></div>
-          </figure>
-          <figure class="chart-figure wide">
-            <figcaption>Quantified Capital and Financing Scale Today (USD Billions)</figcaption>
-            <div id="chart-capital" class="chart"></div>
-          </figure>
-        </div>
-      </section>
-
-      <section>
-        <h2>News Data Table</h2>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>No.</th>
-                <th>Title</th>
-                <th>Segment</th>
-                <th>Date</th>
-                <th>Key Data</th>
-                <th>Confidence Note</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>1</td><td>NVIDIA and SSI long-term strategic partnership</td><td>AI companies / compute</td><td>2026-07-27</td><td>10x compute increase; media reports about $5B investment</td><td>Official partnership and investment confirmed; amount not officially disclosed</td></tr>
-              <tr><td>2</td><td>NVIDIA reportedly negotiates OpenAI data-center financing guarantee</td><td>AI companies / compute</td><td>2026-07-27</td><td>Up to about $250B; 10GW data center</td><td>Bloomberg report; still at negotiation stage</td></tr>
-              <tr><td>3</td><td>BlackRock completes bond financing for Meta AI data center</td><td>AI companies / compute</td><td>2026-07-27</td><td>$12.5B in bonds; up to 1GW AI compute capacity</td><td>P1 financial media source; not an official company release</td></tr>
-              <tr><td>4</td><td>Orange and Morrison plan French data-center joint venture</td><td>AI infrastructure</td><td>2026-07-28</td><td>400MW; €3B, about $3.41B</td><td>Reuters report; signing and approvals still pending</td></tr>
-              <tr><td>5</td><td>OpenAI GPT-Red automated red teaming</td><td>AI technology / safety</td><td>2026-07-15</td><td>GPT-Red attack success 84%; human red teams 13%</td><td>Vendor self-evaluation; third-party replication remains important</td></tr>
-              <tr><td>6</td><td>EU AI Act and AI-cybersecurity action plan</td><td>AI regulation</td><td>2026-07</td><td>Transparency rules effective 2026-08; three action-plan objectives</td><td>European Commission official sources</td></tr>
-              <tr><td>7</td><td>China anthropomorphic interaction rules and WAIC statement</td><td>AI regulation</td><td>2026-07</td><td>Rules effective 2026-07-15; issued by five departments</td><td>CAC and MIIT/Xinhua sources</td></tr>
-              <tr><td>8</td><td>FlowGuard multimodal attack-defense paper</td><td>AI technology / paper</td><td>2026-07-27</td><td>Attack success rate from &gt;90% to &lt;15%; utility loss &lt;3%</td><td>arXiv preprint; results are author-reported</td></tr>
-              <tr><td>9</td><td>Alpaca financing for tokenized and AI-native brokerage infrastructure</td><td>Web3 funding</td><td>2026-07-16</td><td>$135M equity round; $435M total new financing</td><td>Official announcement</td></tr>
-              <tr><td>10</td><td>BTC and ETH edge higher today</td><td>Web3 market</td><td>2026-07-28</td><td>BTC +0.40%; ETH +1.83%; derivatives volume +118.42%</td><td>Market-media data; intraday recheck recommended</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-    </main>
-    <footer>
-      <div class="sources">
-        <h2>Sources</h2>
-        <ol>
-          <li id="cite-1"><span class="src-title">NVIDIA, Safe Superintelligence Inc. and NVIDIA announce long-term strategic partnership.</span><a class="src-url" href="https://nvidianews.nvidia.com/news/ilya-sutskevers-safe-superintelligence-inc-and-nvidia-announce-long-term-strategic-partnership" target="_blank" rel="noopener">https://nvidianews.nvidia.com/news/ilya-sutskevers-safe-superintelligence-inc-and-nvidia-announce-long-term-strategic-partnership</a></li>
-          <li id="cite-2"><span class="src-title">Sina Finance, reported NVIDIA investment amount for SSI.</span><a class="src-url" href="https://finance.sina.com.cn/world/2026-07-28/doc-inikhyqt0423255.shtml" target="_blank" rel="noopener">https://finance.sina.com.cn/world/2026-07-28/doc-inikhyqt0423255.shtml</a></li>
-          <li id="cite-3"><span class="src-title">Bloomberg Línea, NVIDIA negotiates financing guarantee for OpenAI data center.</span><a class="src-url" href="https://www.bloomberglinea.com.br/tech/nvidia-negocia-garantia-de-us-250-bi-para-mega-data-center-da-openai-dizem-fontes/" target="_blank" rel="noopener">https://www.bloomberglinea.com.br/tech/nvidia-negocia-garantia-de-us-250-bi-para-mega-data-center-da-openai-dizem-fontes/</a></li>
-          <li id="cite-4"><span class="src-title">Bloomberg Línea, BlackRock debt financing for Meta data center.</span><a class="src-url" href="https://www.bloomberglinea.com/mercados/blackrock-recauda-us12500-millones-en-deuda-para-el-centro-de-datos-de-meta/" target="_blank" rel="noopener">https://www.bloomberglinea.com/mercados/blackrock-recauda-us12500-millones-en-deuda-para-el-centro-de-datos-de-meta/</a></li>
-          <li id="cite-5"><span class="src-title">Reuters via CNA, Orange and Morrison plan French data centre venture.</span><a class="src-url" href="https://www.channelnewsasia.com/business/orange-morrison-plan-french-data-centre-venture-meet-ai-demand-6281466" target="_blank" rel="noopener">https://www.channelnewsasia.com/business/orange-morrison-plan-french-data-centre-venture-meet-ai-demand-6281466</a></li>
-          <li id="cite-6"><span class="src-title">OpenAI, Unlocking self-improvement with GPT-Red.</span><a class="src-url" href="https://openai.com/index/unlocking-self-improvement-gpt-red/" target="_blank" rel="noopener">https://openai.com/index/unlocking-self-improvement-gpt-red/</a></li>
-          <li id="cite-7"><span class="src-title">European Commission, AI Act regulatory framework.</span><a class="src-url" href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" target="_blank" rel="noopener">https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai</a></li>
-          <li id="cite-8"><span class="src-title">European Commission, EU action plan on cybersecurity and artificial intelligence.</span><a class="src-url" href="https://digital-strategy.ec.europa.eu/en/library/eu-action-plan-cybersecurity-and-artificial-intelligence" target="_blank" rel="noopener">https://digital-strategy.ec.europa.eu/en/library/eu-action-plan-cybersecurity-and-artificial-intelligence</a></li>
-          <li id="cite-9"><span class="src-title">Cyberspace Administration of China, release on Interim Measures for AI Anthropomorphic Interaction Services.</span><a class="src-url" href="https://www.cac.gov.cn/2026-04/10/c_1777558395023172.htm" target="_blank" rel="noopener">https://www.cac.gov.cn/2026-04/10/c_1777558395023172.htm</a></li>
-          <li id="cite-10"><span class="src-title">MIIT/Xinhua, 2026 World Artificial Intelligence Conference Chair Statement.</span><a class="src-url" href="https://www.miit.gov.cn/xwfb/szyw/art/2026/art_eff1f6a667254e58876fa95279c2766d.html" target="_blank" rel="noopener">https://www.miit.gov.cn/xwfb/szyw/art/2026/art_eff1f6a667254e58876fa95279c2766d.html</a></li>
-          <li id="cite-11"><span class="src-title">arXiv, FlowGuard: Safeguarding Multimodal AI Attacks via Internal Information Decomposition.</span><a class="src-url" href="https://arxiv.org/abs/2607.21600" target="_blank" rel="noopener">https://arxiv.org/abs/2607.21600</a></li>
-          <li id="cite-12"><span class="src-title">Alpaca, Alpaca raises $135 million to scale agent-first brokerage infrastructure.</span><a class="src-url" href="https://alpaca.markets/blog/alpaca-raises-135-million-to-scale-agent-first-brokerage-infrastructure-for-tokenized-markets-and-ai-native-financial-services/" target="_blank" rel="noopener">https://alpaca.markets/blog/alpaca-raises-135-million-to-scale-agent-first-brokerage-infrastructure-for-tokenized-markets-and-ai-native-financial-services/</a></li>
-          <li id="cite-13"><span class="src-title">TokenPost, 2026-07-28 crypto market briefing.</span><a class="src-url" href="https://www.tokenpost.kr/news/briefing/381927" target="_blank" rel="noopener">https://www.tokenpost.kr/news/briefing/381927</a></li>
-        </ol>
-      </div>
-    </footer>
-  </article>
-
-  <script src="./_shared/js/echarts.min.js"></script>
-  <script src="./assets/charts-en.js"></script>
-</body>
-</html>
+<figure class="chart-figure"><figcaption>Chart 2 · Selected crypto asset 24h moves on July 28 (%)</figcaption><div id="chart-crypto-moves" style="width:100%;min-height:360px"></div><p class="chart-sub">Source: CoinGabbar. KAITO was an outlier gainer while SHIB led large drawdowns.</p></figure>
+<article class="news-item"><div class="rank">12</div><div class="body"><h3>On-chain finance products keep expanding across Ondo, Coinbase, OKX, and Binance<span class="cat ai">PRODUCT</span></h3><p class="summary">Product updates continued even as prices fell. CoinGabbar’s July 28 roundup says Ondo Finance introduced Ondo Network as an execution layer aiming to combine centralized-exchange speed with self-custody and on-chain settlement; Coinbase added a Launches tab for Base and Solana token discovery and trading; OKX resumed downloads and updates on South Korea’s Google Play Store, while Binance’s Android app disappeared from Google Play in some European countries including Spain amid MiCA-related developments.<sup><a href="#cite-8">[8]</a></sup></p></div></article><article class="news-item"><div class="rank">13</div><div class="body"><h3>Regulation and prediction markets remain structural variables for Web3<span class="cat reg">REGULATION</span></h3><p class="summary">CoinGabbar also reports that Pennsylvania lawmakers introduced HB 2711 to restrict gambling companies from operating prediction-market liquidity services, while a federal judge temporarily blocked Minnesota’s prediction-market ban. Franklin Templeton urged Congress to approve the CLARITY Act, arguing that clear crypto rules would improve investor protection and business stability. Stablecoin market capitalization stood near <strong>$303 billion</strong>, while DeFi market capitalization was about $62.13 billion and down 3.6% over 24 hours.<sup><a href="#cite-8">[8]</a></sup></p></div></article>
+<figure class="chart-figure"><figcaption>Chart 3 · 24h crypto liquidation structure (USD millions)</figcaption><div id="chart-liquidations" style="width:100%;min-height:340px"></div><p class="chart-sub">Source: Phoenix / CoinGlass. Long liquidations accounted for most liquidated value.</p></figure>
+<figure class="chart-figure"><figcaption>Chart 4 · Lido post-Pectra validator migration impact</figcaption><div id="chart-lido" style="width:100%;min-height:340px"></div><p class="chart-sub">Sources: The Block and CoinStats. 0x02 validators rise as total validator count is expected to fall.</p></figure>
+<h3 style="font-family:var(--serif);font-weight:400;font-size:1.3rem;margin:2.5rem 0 .5rem;">Crypto Market Snapshot · 2026-07-28</h3><p style="color:var(--muted);font-size:.85rem;margin-bottom:1rem;">Data sources: CoinGabbar, Phoenix / CoinGlass, CoinStats.</p><div class="table-wrap"><table><thead><tr><th>Asset / Metric</th><th>Value</th><th>24h Change</th><th>Notes</th></tr></thead><tbody><tr><td>BTC</td><td>$63,173</td><td><span class="neg">-2.82%</span></td><td>Risk-off before FOMC; Phoenix snapshot around $63.3K</td></tr><tr><td>ETH</td><td>$1,872</td><td><span class="neg">-3.52%</span></td><td>Support watched near $1,880–$1,900</td></tr><tr><td>Global crypto market cap</td><td>$2.26T</td><td><span class="neg">-1.6%</span></td><td>Broad pullback after July 27 rebound</td></tr><tr><td>Stablecoin market cap</td><td>$303B</td><td>Flat</td><td>Trading volume near $60.8B</td></tr><tr><td>DeFi market cap</td><td>$62.13B</td><td><span class="neg">-3.6%</span></td><td>DeFi dominance around 4.6%</td></tr><tr><td>24h liquidations</td><td>$686M</td><td>—</td><td>166,094 traders liquidated; longs about $542M</td></tr></tbody></table></div>
+</div></section>
+<section style="border-bottom:none;"><div class="wrap"><div class="trend-comment"><div class="tag">Today’s Trend Readout</div><p>The AI story today is <mark class="key">capital and control converging around frontier capability.</mark> Nvidia’s SSI investment and the U.S. frontier-model review framework point to the same structural shift: model progress is now governed by access to compute, safety review, and strategic infrastructure financing.</p><p>Web3 shows a <mark class="key">risk-off market with active infrastructure work underneath.</mark> Prices and leverage reset sharply before the Fed meeting, but Lido’s validator migration, x402 security research, Ondo Network, Coinbase Launches, and prediction-market litigation show that protocol-level and regulatory work continues through volatility.</p></div></div></section>
+<footer><div class="wrap"><div class="sources"><h2>Sources</h2><ol><li id="cite-1"><span class="src-title">第一财经 / 凤凰网，英伟达约 50 亿美元投资 Safe Superintelligence，并披露 AI 基础设施循环融资风险。</span><a class="src-url" href="https://finance.ifeng.com/c/8v7e3HbCoDM" target="_blank" rel="noopener">https://finance.ifeng.com/c/8v7e3HbCoDM</a></li><li id="cite-2"><span class="src-title">华尔街见闻 / 网易，特朗普政府前沿 AI 模型审查框架草案流转至 OpenAI、Anthropic 与谷歌。</span><a class="src-url" href="https://m.163.com/dy/article/L2U9BTVD05198NMR.html" target="_blank" rel="noopener">https://m.163.com/dy/article/L2U9BTVD05198NMR.html</a></li><li id="cite-3"><span class="src-title">OpenAI，GPT-5.6 System Card，披露 Sol/Terra/Luna 能力、安全评估与部署防护。</span><a class="src-url" href="https://deploymentsafety.openai.com/gpt-5-6" target="_blank" rel="noopener">https://deploymentsafety.openai.com/gpt-5-6</a></li><li id="cite-4"><span class="src-title">GIGAZINE，Google 发布 Gemini 3.6 Flash、3.5 Flash-Lite 与 3.5 Flash Cyber。</span><a class="src-url" href="https://www.gigazine.net/gsc_news/en/20260722-google-gemini-3-6-flash/" target="_blank" rel="noopener">https://www.gigazine.net/gsc_news/en/20260722-google-gemini-3-6-flash/</a></li><li id="cite-5"><span class="src-title">每日经济新闻 / 凤凰网，中国开源大模型 Kimi K3、Qwen3.8-Max、DeepSeek-V4 与美国开放权重争论。</span><a class="src-url" href="https://news.ifeng.com/c/8v36WP0WL2Y" target="_blank" rel="noopener">https://news.ifeng.com/c/8v36WP0WL2Y</a></li><li id="cite-6"><span class="src-title">WAM / Xinhua，中国三部门发布 AI 智能体规范应用与创新发展指引。</span><a class="src-url" href="https://www.wam.ae/en/article/c04jl9e-china-unveils-guidelines-regulate-boost-innovative" target="_blank" rel="noopener">https://www.wam.ae/en/article/c04jl9e-china-unveils-guidelines-regulate-boost-innovative</a></li><li id="cite-7"><span class="src-title">环球科技网 / 凤凰网，《人工智能拟人化互动服务管理暂行办法》落地后的算法与内容采信变化。</span><a class="src-url" href="https://tech.ifeng.com/c/8v81n5tTc2H" target="_blank" rel="noopener">https://tech.ifeng.com/c/8v81n5tTc2H</a></li><li id="cite-8"><span class="src-title">CoinGabbar，Crypto News Today 28 July：市场总览、价格、DeFi、稳定币、监管与产品动态。</span><a class="src-url" href="https://www.coingabbar.com/en/crypto-currency-news/crypto-news-today-bitcoin-eth-shib-kaito-price-28-july-2026" target="_blank" rel="noopener">https://www.coingabbar.com/en/crypto-currency-news/crypto-news-today-bitcoin-eth-shib-kaito-price-28-july-2026</a></li><li id="cite-9"><span class="src-title">观察者网 / 凤凰网，加密货币市场普跌与 CoinGlass 24 小时爆仓统计。</span><a class="src-url" href="https://news.ifeng.com/c/8v845RyFgkr" target="_blank" rel="noopener">https://news.ifeng.com/c/8v845RyFgkr</a></li><li id="cite-10"><span class="src-title">CoinStats，Ethereum Daily Market Analysis 28 July 2026，ETH 价格、ETF、DeFi 与技术路线。</span><a class="src-url" href="https://coinstats.app/ai/a/latest-news-for-ethereum#ethereum-eth-daily-market-analysis-28-july-2026" target="_blank" rel="noopener">https://coinstats.app/ai/a/latest-news-for-ethereum#ethereum-eth-daily-market-analysis-28-july-2026</a></li><li id="cite-11"><span class="src-title">The Block，Lido 开始将 160 亿美元质押 ETH 整合至 post-Pectra 0x02 验证者。</span><a class="src-url" href="https://www.theblock.co/post/409780/lido-begins-consolidating-16-billion-worth-of-staked-eth-as-curated-module-v2-rolls-out" target="_blank" rel="noopener">https://www.theblock.co/post/409780/lido-begins-consolidating-16-billion-worth-of-staked-eth-as-curated-module-v2-rolls-out</a></li><li id="cite-12"><span class="src-title">CryptoSlate，x402 支付 facilitator 研究披露 31 个漏洞与四类攻击路径。</span><a class="src-url" href="https://cryptoslate.com/31-newly-discovered-vulnerabilities-expose-99-of-x402-crypto-payments-to-asset-theft-and-free-shopping/" target="_blank" rel="noopener">https://cryptoslate.com/31-newly-discovered-vulnerabilities-expose-99-of-x402-crypto-payments-to-asset-theft-and-free-shopping/</a></li><li id="cite-13"><span class="src-title">中国网 / 新华社，2026 年 7 月 28 日人民币兑美元中间价为 6.7928。</span><a class="src-url" href="http://www.china.org.cn/china/Off_the_Wire/2026-07/28/content_118621425.shtml" target="_blank" rel="noopener">http://www.china.org.cn/china/Off_the_Wire/2026-07/28/content_118621425.shtml</a></li></ol></div><div class="about-hiblock"><h2>About <span class="accent">HiBlock</span></h2><p>HiBlock is a platform dedicated to supporting technology startups through acceleration programs, community engagement, and investment opportunities across the full lifecycle.</p></div></div></footer>
+<script src="./_shared/js/echarts.min.js"></script><script src="assets/charts-en.js"></script>
+</body></html>
