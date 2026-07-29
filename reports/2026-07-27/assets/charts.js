@@ -69,7 +69,7 @@
   });
   window.addEventListener('resize', function() { chart1.resize(); });
 
-  // ===== Chart 2: 7 月 26 日加密资产单日涨幅对比 =====
+  // ===== Chart 2: 7 月 26 日数字资产单日涨幅对比 =====
   var chart2 = echarts.init(document.getElementById('chart-altcoins'), null, { renderer: 'svg' });
   chart2.setOption({
     animation: false,
