@@ -1,3 +1,4 @@
+// assets/charts.js
 (function() {
   var style = getComputedStyle(document.documentElement);
   var accent = style.getPropertyValue('--accent').trim();
@@ -8,160 +9,15 @@
   var rule = style.getPropertyValue('--rule').trim();
   var bg2 = style.getPropertyValue('--bg2').trim();
   var danger = style.getPropertyValue('--danger').trim();
-
-  // --- Chart 1: AI 融资规模对比 ---
-  var chart1 = echarts.init(document.getElementById('chart-ai-funding'), null, { renderer: 'svg' });
-  chart1.setOption({
-    animation: false,
-    tooltip: { trigger: 'axis', appendToBody: true, axisPointer: { type: 'shadow' } },
-    grid: { left: '3%', right: '4%', bottom: '3%', top: '10%', containLabel: true },
-    xAxis: {
-      type: 'category',
-      data: ['月之暗面 Moonshot', 'Meta-BlackRock 合资', 'Anthropic H轮', 'OpenAI Deployment Co', 'Jump Capital 基金'],
-      axisLine: { lineStyle: { color: rule } },
-      axisLabel: { color: muted, fontSize: 11, interval: 0, rotate: 15 }
-    },
-    yAxis: {
-      type: 'value',
-      name: '十亿美元',
-      nameTextStyle: { color: muted, fontSize: 11 },
-      axisLine: { lineStyle: { color: rule } },
-      splitLine: { lineStyle: { color: rule } },
-      axisLabel: { color: muted, fontSize: 11 }
-    },
-    series: [{
-      type: 'bar',
-      data: [3.5, 14, 6.5, 4, 0.35],
-      itemStyle: {
-        color: function(params) {
-          var colors = [accent, accent2, accent3, accent + 'cc', muted];
-          return colors[params.dataIndex];
-        },
-        borderRadius: [4, 4, 0, 0]
-      },
-      barWidth: '50%',
-      label: {
-        show: true,
-        position: 'top',
-        color: ink,
-        fontSize: 11,
-        formatter: '{c}B'
-      }
-    }]
-  });
-  window.addEventListener('resize', function() { chart1.resize(); });
-
-  // --- Chart 2: 加密资产 24h 涨跌幅 ---
-  var chart2 = echarts.init(document.getElementById('chart-crypto-moves'), null, { renderer: 'svg' });
-  chart2.setOption({
-    animation: false,
-    tooltip: { trigger: 'axis', appendToBody: true, axisPointer: { type: 'shadow' } },
-    grid: { left: '3%', right: '4%', bottom: '3%', top: '10%', containLabel: true },
-    xAxis: {
-      type: 'category',
-      data: ['BTC', 'ETH', 'SOL', '全球市值'],
-      axisLine: { lineStyle: { color: rule } },
-      axisLabel: { color: muted, fontSize: 12 }
-    },
-    yAxis: {
-      type: 'value',
-      name: '24h 涨跌幅 (%)',
-      nameTextStyle: { color: muted, fontSize: 11 },
-      axisLine: { lineStyle: { color: rule } },
-      splitLine: { lineStyle: { color: rule } },
-      axisLabel: { color: muted, fontSize: 11, formatter: '{value}%' }
-    },
-    series: [{
-      type: 'bar',
-      data: [
-        { value: 1.37, itemStyle: { color: accent2 } },
-        { value: 1.74, itemStyle: { color: accent2 } },
-        { value: -3.6, itemStyle: { color: danger } },
-        { value: 1.2, itemStyle: { color: accent2 } }
-      ],
-      barWidth: '40%',
-      label: {
-        show: true,
-        position: 'top',
-        color: ink,
-        fontSize: 11,
-        formatter: '{c}%'
-      }
-    }]
-  });
-  window.addEventListener('resize', function() { chart2.resize(); });
-
-  // --- Chart 3: ETF 资金流向 ---
-  var chart3 = echarts.init(document.getElementById('chart-etf-flow'), null, { renderer: 'svg' });
-  chart3.setOption({
-    animation: false,
-    tooltip: { trigger: 'axis', appendToBody: true, axisPointer: { type: 'shadow' } },
-    legend: {
-      data: ['BTC 现货 ETF', 'ETH 现货 ETF'],
-      textStyle: { color: muted, fontSize: 11 },
-      top: 0
-    },
-    grid: { left: '3%', right: '4%', bottom: '3%', top: '18%', containLabel: true },
-    xAxis: {
-      type: 'category',
-      data: ['7日累计', '30日累计', '7月28日单日'],
-      axisLine: { lineStyle: { color: rule } },
-      axisLabel: { color: muted, fontSize: 12 }
-    },
-    yAxis: {
-      type: 'value',
-      name: '百万美元',
-      nameTextStyle: { color: muted, fontSize: 11 },
-      axisLine: { lineStyle: { color: rule } },
-      splitLine: { lineStyle: { color: rule } },
-      axisLabel: { color: muted, fontSize: 11 }
-    },
-    series: [
-      {
-        name: 'BTC 现货 ETF',
-        type: 'bar',
-        data: [-850, -2300, -49.7],
-        itemStyle: { color: danger, borderRadius: [3, 3, 0, 0] },
-        barWidth: '30%'
-      },
-      {
-        name: 'ETH 现货 ETF',
-        type: 'bar',
-        data: [124.9, 380, 9.4],
-        itemStyle: { color: accent2, borderRadius: [3, 3, 0, 0] },
-        barWidth: '30%'
-      }
-    ]
-  });
-  window.addEventListener('resize', function() { chart3.resize(); });
-
-  // --- Chart 4: 新闻分类分布 ---
-  var chart4 = echarts.init(document.getElementById('chart-news-cat'), null, { renderer: 'svg' });
-  chart4.setOption({
-    animation: false,
-    tooltip: { trigger: 'item', appendToBody: true, formatter: '{b}: {c} 条 ({d}%)' },
-    legend: {
-      orient: 'vertical',
-      right: '5%',
-      top: 'center',
-      textStyle: { color: muted, fontSize: 12 }
-    },
-    series: [{
-      type: 'pie',
-      radius: ['45%', '70%'],
-      center: ['35%', '50%'],
-      avoidLabelOverlap: false,
-      itemStyle: { borderRadius: 4, borderColor: bg2, borderWidth: 2 },
-      label: { show: false },
-      emphasis: { label: { show: true, fontSize: 14, fontWeight: 'bold', color: ink } },
-      data: [
-        { value: 5, name: 'AI 监管政策', itemStyle: { color: danger } },
-        { value: 4, name: 'AI 融资并购', itemStyle: { color: accent3 } },
-        { value: 2, name: 'AI 技术产品', itemStyle: { color: accent } },
-        { value: 3, name: 'Web3 监管', itemStyle: { color: danger } },
-        { value: 3, name: 'Web3 市场', itemStyle: { color: accent2 } }
-      ]
-    }]
-  });
-  window.addEventListener('resize', function() { chart4.resize(); });
+  function axisStyle(){return {axisLine:{lineStyle:{color:rule}},axisTick:{show:false},axisLabel:{color:muted,fontSize:11},splitLine:{lineStyle:{color:rule,type:'dashed'}}};;}
+  function tooltip(){return {appendToBody:true,backgroundColor:bg2,borderColor:rule,textStyle:{color:ink,fontSize:12}};}
+  var c1 = echarts.init(document.getElementById('chart-ai-capital'), null, {renderer:'svg'});
+  c1.setOption({animation:false,tooltip:Object.assign({trigger:'axis',axisPointer:{type:'shadow'},formatter:function(p){return p[0].name+'<br/>规模：'+p[0].value+' 十亿美元';}},tooltip()),grid:{left:'8%',right:'8%',top:'8%',bottom:'18%',containLabel:true},xAxis:Object.assign({type:'category',data:['Meta\n资本支出','Anthropic\nH轮','可灵AI\n融资','月之暗面'],axisLabel:{interval:0,color:muted,fontSize:10,lineHeight:14}},axisStyle()),yAxis:Object.assign({type:'log',name:'十亿美元（log）',nameTextStyle:{color:muted}},axisStyle()),series:[{type:'bar',barWidth:'48%',data:[{value:140,itemStyle:{color:danger}},{value:65,itemStyle:{color:accent}},{value:30,itemStyle:{color:accent2}},{value:35,itemStyle:{color:accent3}}],label:{show:true,position:'top',color:ink,fontSize:11,formatter:'${c}B'},itemStyle:{borderRadius:[6,6,0,0]}}]});
+  var c2 = echarts.init(document.getElementById('chart-crypto-moves'), null, {renderer:'svg'});
+  c2.setOption({animation:false,tooltip:Object.assign({trigger:'axis',axisPointer:{type:'shadow'},formatter:function(p){return p[0].name+'<br/>24h：'+p[0].value+'%';}},tooltip()),grid:{left:'8%',right:'8%',top:'8%',bottom:'12%',containLabel:true},xAxis:Object.assign({type:'category',data:['BEAT','PI','JUP','SOL','BTC','ETH','AAVE','ENA'],axisLabel:{color:muted,fontSize:11}},axisStyle()),yAxis:Object.assign({type:'value',name:'涨跌幅 (%)',nameTextStyle:{color:muted}},axisStyle()),series:[{type:'bar',barWidth:'52%',data:[11.63,6.05,3.23,1.12,0.96,0.67,-6.03,-6.04].map(function(v){return {value:v,itemStyle:{color:v>=0?accent2:danger}};}),label:{show:true,position:function(p){return p.value>=0?'top':'bottom';},color:ink,fontSize:11,formatter:'{c}%'},itemStyle:{borderRadius:[6,6,0,0]}}]});
+  var c3 = echarts.init(document.getElementById('chart-liquidations'), null, {renderer:'svg'});
+  c3.setOption({animation:false,color:[danger,accent2],tooltip:Object.assign({trigger:'item',formatter:function(p){return p.name+'<br/>爆仓：$'+p.value+'M ('+p.percent+'%)';}},tooltip()),legend:{bottom:'2%',left:'center',textStyle:{color:muted,fontSize:11}},series:[{type:'pie',radius:['42%','68%'],center:['50%','45%'],itemStyle:{borderColor:bg2,borderWidth:3},label:{show:true,color:ink,fontSize:11,formatter:'{b}\n{d}%'},data:[{value:520,name:'多单爆仓（估算）',itemStyle:{color:danger}},{value:105,name:'空单爆仓',itemStyle:{color:accent2}}]}]});
+  var c4 = echarts.init(document.getElementById('chart-h1-crypto'), null, {renderer:'svg'});
+  c4.setOption({animation:false,tooltip:Object.assign({trigger:'axis',axisPointer:{type:'shadow'},formatter:function(p){return p[0].name+'<br/>金额：$'+p[0].value+'B';}},tooltip()),grid:{left:'10%',right:'10%',top:'8%',bottom:'12%',containLabel:true},xAxis:Object.assign({type:'category',data:['H1融资总额','H1并购总额','Q2融资总额'],axisLabel:{interval:0,color:muted,fontSize:11}},axisStyle()),yAxis:Object.assign({type:'value',name:'十亿美元',nameTextStyle:{color:muted}},axisStyle()),series:[{type:'bar',barWidth:'45%',data:[{value:133,itemStyle:{color:accent}},{value:93.7,itemStyle:{color:accent2}},{value:77.3,itemStyle:{color:accent3}}],label:{show:true,position:'top',color:ink,fontSize:11,formatter:'${c}B'},itemStyle:{borderRadius:[6,6,0,0]}}]});
+  [c1,c2,c3,c4].forEach(function(c){window.addEventListener('resize',function(){c.resize();});});
 })();
