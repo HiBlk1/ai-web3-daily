@@ -196,6 +196,164 @@
   });
 
   // ---- Chart 5: On-Chain Crypto Card Platforms Volume & Market Share ----
+  // ---- Chart 5: LLM Stats Composite Intelligence Index Top 10 ----
+  var c6 = echarts.init(document.getElementById('chart-ai-kol-leaderboard'), null, { renderer: 'svg' });
+  c6.setOption({
+    backgroundColor: 'transparent',
+    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }, backgroundColor: 'rgba(31,35,48,.95)', borderColor: colors.rule, textStyle: { color: colors.ink, fontSize: 12 } },
+    grid: { left: '3%', right: '10%', bottom: '3%', top: '5%', containLabel: true },
+    xAxis: {
+      type: 'value',
+      name: 'Score',
+      nameTextStyle: { color: colors.muted, fontSize: 10 },
+      axisLine: { show: false },
+      axisLabel: { color: colors.muted, fontSize: 11 },
+      splitLine: { lineStyle: { color: colors.rule } },
+      max: 65
+    },
+    yAxis: {
+      type: 'category',
+      data: ['GLM-5.2', 'Gemini 3 Pro', 'Grok 4', 'Kimi K3', 'GPT-5.5', 'Claude Sonnet 5', 'Gemini 3.1 Pro', 'Claude Opus 4.7', 'GPT-5.6 Sol', 'Claude Opus 5'],
+      axisLine: { lineStyle: { color: colors.rule } },
+      axisLabel: { color: colors.muted, fontSize: 10 }
+    },
+    series: [{
+      type: 'bar',
+      data: [
+        { value: 51, itemStyle: { color: '#b388ff' } },
+        { value: 52, itemStyle: { color: '#81d4fa' } },
+        { value: 53, itemStyle: { color: '#ba68c8' } },
+        { value: 55.7, itemStyle: { color: colors.accent3 } },
+        { value: 55, itemStyle: { color: '#4dd0e1' } },
+        { value: 53, itemStyle: { color: colors.accent2 } },
+        { value: 54, itemStyle: { color: '#80cbc4' } },
+        { value: 54, itemStyle: { color: colors.danger } },
+        { value: 57.7, itemStyle: { color: colors.accent } },
+        { value: 57.8, itemStyle: { color: colors.accent2 } }
+      ],
+      barWidth: '55%',
+      label: { show: true, position: 'right', color: colors.ink, fontSize: 11, formatter: '{c}' }
+    }]
+  });
+
+  // ---- Chart 6: Global AI Compute Index (ECI) Trend ----
+  var c7 = echarts.init(document.getElementById('chart-ai-kol-compute'), null, { renderer: 'svg' });
+  c7.setOption({
+    backgroundColor: 'transparent',
+    tooltip: { trigger: 'axis', backgroundColor: 'rgba(31,35,48,.95)', borderColor: colors.rule, textStyle: { color: colors.ink, fontSize: 12 } },
+    legend: { data: ['ECI Index', 'Equivalent Chips (M)'], textStyle: { color: colors.muted, fontSize: 11 }, top: 0 },
+    grid: { left: '3%', right: '8%', bottom: '3%', top: '18%', containLabel: true },
+    xAxis: {
+      type: 'category',
+      data: ['2024 Q1', '2024 Q3', '2025 Q1', '2025 Q3', '2026 Q1', '2026 Q3'],
+      axisLine: { lineStyle: { color: colors.rule } },
+      axisLabel: { color: colors.muted, fontSize: 11 }
+    },
+    yAxis: [
+      {
+        type: 'value',
+        name: 'ECI Index',
+        nameTextStyle: { color: colors.muted, fontSize: 10 },
+        axisLine: { show: false },
+        axisLabel: { color: colors.muted, fontSize: 11 },
+        splitLine: { lineStyle: { color: colors.rule } }
+      },
+      {
+        type: 'value',
+        name: 'Chips (M)',
+        nameTextStyle: { color: colors.muted, fontSize: 10 },
+        axisLine: { show: false },
+        axisLabel: { color: colors.muted, fontSize: 11 },
+        splitLine: { show: false }
+      }
+    ],
+    series: [
+      {
+        name: 'ECI Index',
+        type: 'line',
+        smooth: true,
+        data: [100, 145, 210, 310, 460, 620],
+        lineStyle: { color: colors.accent, width: 2.5 },
+        itemStyle: { color: colors.accent },
+        areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          { offset: 0, color: 'rgba(110,168,254,0.2)' },
+          { offset: 1, color: 'rgba(110,168,254,0.01)' }
+        ]) },
+        symbol: 'circle',
+        symbolSize: 6
+      },
+      {
+        name: 'Equivalent Chips (M)',
+        type: 'line',
+        yAxisIndex: 1,
+        smooth: true,
+        data: [2.8, 4.1, 5.9, 8.2, 10.5, 12.5],
+        lineStyle: { color: colors.accent2, width: 2 },
+        itemStyle: { color: colors.accent2 },
+        symbol: 'circle',
+        symbolSize: 6
+      }
+    ]
+  });
+
+  // ---- Chart 7: Big 5 Tech AI Capex vs Stock Price Gain ----
+  var c8 = echarts.init(document.getElementById('chart-ai-kol-marketmind'), null, { renderer: 'svg' });
+  c8.setOption({
+    backgroundColor: 'transparent',
+    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }, backgroundColor: 'rgba(31,35,48,.95)', borderColor: colors.rule, textStyle: { color: colors.ink, fontSize: 12 } },
+    legend: { data: ['AI Capex ($B)', 'Stock Gain (%)'], textStyle: { color: colors.muted, fontSize: 11 }, top: 0 },
+    grid: { left: '3%', right: '8%', bottom: '3%', top: '15%', containLabel: true },
+    xAxis: {
+      type: 'category',
+      data: ['Microsoft', 'Google', 'Amazon', 'Meta', 'Apple'],
+      axisLine: { lineStyle: { color: colors.rule } },
+      axisLabel: { color: colors.muted, fontSize: 10, interval: 0 }
+    },
+    yAxis: [
+      {
+        type: 'value',
+        name: 'Capex ($B)',
+        nameTextStyle: { color: colors.muted, fontSize: 10 },
+        axisLine: { show: false },
+        axisLabel: { color: colors.muted, fontSize: 11 },
+        splitLine: { lineStyle: { color: colors.rule } }
+      },
+      {
+        type: 'value',
+        name: 'Gain (%)',
+        nameTextStyle: { color: colors.muted, fontSize: 10 },
+        axisLine: { show: false },
+        axisLabel: { color: colors.muted, fontSize: 11, formatter: '{value}%' },
+        splitLine: { show: false }
+      }
+    ],
+    series: [
+      {
+        name: 'AI Capex ($B)',
+        type: 'bar',
+        data: [
+          { value: 110, itemStyle: { color: colors.accent } },
+          { value: 200, itemStyle: { color: colors.accent } },
+          { value: 85, itemStyle: { color: colors.accent } },
+          { value: 143, itemStyle: { color: colors.accent } },
+          { value: 25, itemStyle: { color: colors.accent } }
+        ],
+        barWidth: '30%'
+      },
+      {
+        name: 'Stock Gain (%)',
+        type: 'line',
+        yAxisIndex: 1,
+        smooth: true,
+        data: [38, 42, 25, 67, 18],
+        lineStyle: { color: colors.accent2, width: 2.5 },
+        itemStyle: { color: colors.accent2 },
+        symbol: 'circle',
+        symbolSize: 7
+      }
+    ]
+  });
+
   var c5 = echarts.init(document.getElementById('chart-kol-cards'), null, { renderer: 'svg' });
   c5.setOption({
     backgroundColor: 'transparent',
@@ -249,6 +407,6 @@
   });
 
   // Responsive
-  function resizeAll() { c1.resize(); c2.resize(); c3.resize(); c4.resize(); c4b.resize(); c5.resize(); }
+  function resizeAll() { c1.resize(); c2.resize(); c3.resize(); c4.resize(); c4b.resize(); c6.resize(); c7.resize(); c8.resize(); c5.resize(); }
   window.addEventListener('resize', resizeAll);
 })();
