@@ -156,6 +156,45 @@
     }]
   });
 
+  // ---- 图表4：OpenRouter周榜Top10模型Token用量 ----
+  var c4b = echarts.init(document.getElementById('chart-ai-kol-models'), null, { renderer: 'svg' });
+  c4b.setOption({
+    backgroundColor: 'transparent',
+    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }, backgroundColor: 'rgba(31,35,48,.95)', borderColor: colors.rule, textStyle: { color: colors.ink, fontSize: 12 }, formatter: function(params) { return params[0].name + '<br/>Token: ' + params[0].value + ' 万亿'; } },
+    grid: { left: '3%', right: '6%', bottom: '3%', top: '5%', containLabel: true },
+    xAxis: {
+      type: 'value',
+      name: '万亿 tokens',
+      nameTextStyle: { color: colors.muted, fontSize: 10 },
+      axisLine: { show: false },
+      axisLabel: { color: colors.muted, fontSize: 11 },
+      splitLine: { lineStyle: { color: colors.rule } }
+    },
+    yAxis: {
+      type: 'category',
+      data: ['Kimi K3', 'Step 3.7 Flash', 'GPT-5.6 Luna', 'MiniMax M3', 'Nemotron 3 Ultra', 'GLM 5.2', 'DeepSeek V4 Pro', 'Hy3 (Tencent)', 'MiMo-V2.5 (Xiaomi)', 'DeepSeek V4 Flash'],
+      axisLine: { lineStyle: { color: colors.rule } },
+      axisLabel: { color: colors.muted, fontSize: 10 }
+    },
+    series: [{
+      type: 'bar',
+      data: [
+        { value: 1.42, itemStyle: { color: '#b388ff } },
+        { value: 1.66, itemStyle: { color: '#81d4fa' } },
+        { value: 1.95, itemStyle: { color: colors.danger } },
+        { value: 1.96, itemStyle: { color: '#ba68c8' } },
+        { value: 2.43, itemStyle: { color: colors.accent3 } },
+        { value: 2.89, itemStyle: { color: '#4dd0e1' } },
+        { value: 3.28, itemStyle: { color: colors.accent2 } },
+        { value: 4.82, itemStyle: { color: colors.accent3 } },
+        { value: 6.30, itemStyle: { color: colors.accent2 } },
+        { value: 7.22, itemStyle: { color: colors.accent } }
+      ],
+      barWidth: '55%',
+      label: { show: true, position: 'right', color: colors.ink, fontSize: 11, formatter: '{c}T' }
+    }]
+  });
+
   // ---- 图表5：链上加密卡平台交易量与市场份额 ----
   var c5 = echarts.init(document.getElementById('chart-kol-cards'), null, { renderer: 'svg' });
   c5.setOption({
@@ -210,6 +249,6 @@
   });
 
   // 响应式
-  function resizeAll() { c1.resize(); c2.resize(); c3.resize(); c4.resize(); c5.resize(); }
+  function resizeAll() { c1.resize(); c2.resize(); c3.resize(); c4.resize(); c4b.resize(); c5.resize(); }
   window.addEventListener('resize', resizeAll);
 })();
