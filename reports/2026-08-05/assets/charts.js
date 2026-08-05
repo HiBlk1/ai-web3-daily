@@ -133,7 +133,7 @@
   });
 
   // ---- 图表4：本周AI融资领域分布 ----
-  var c4 = echarts.init(document.getElementById('chart-h1-crypto'), null, { renderer: 'svg' });
+  var c4 = echarts.init(document.getElementById('chart-ai-sector'), null, { renderer: 'svg' });
   c4.setOption({
     backgroundColor: 'transparent',
     tooltip: { trigger: 'item', backgroundColor: 'rgba(31,35,48,.95)', borderColor: colors.rule, textStyle: { color: colors.ink, fontSize: 12 }, formatter: '{b}: {c}亿美元 ({d}%)' },
@@ -156,7 +156,60 @@
     }]
   });
 
+  // ---- 图表5：链上加密卡平台交易量与市场份额 ----
+  var c5 = echarts.init(document.getElementById('chart-kol-cards'), null, { renderer: 'svg' });
+  c5.setOption({
+    backgroundColor: 'transparent',
+    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }, backgroundColor: 'rgba(31,35,48,.95)', borderColor: colors.rule, textStyle: { color: colors.ink, fontSize: 12 } },
+    legend: { data: ['交易量（十亿美元）', '市场份额（%）'], textStyle: { color: colors.muted, fontSize: 11 }, top: 0 },
+    grid: { left: '3%', right: '8%', bottom: '3%', top: '15%', containLabel: true },
+    xAxis: {
+      type: 'category',
+      data: ['RedotPay', 'ether.fi', 'Cypher', 'Gnosis Pay', 'Holyheld', 'MetaMask'],
+      axisLine: { lineStyle: { color: colors.rule } },
+      axisLabel: { color: colors.muted, fontSize: 10, interval: 0, rotate: 0 }
+    },
+    yAxis: [
+      {
+        type: 'value',
+        name: '交易量 ($B)',
+        nameTextStyle: { color: colors.muted, fontSize: 10 },
+        axisLine: { show: false },
+        axisLabel: { color: colors.muted, fontSize: 11 },
+        splitLine: { lineStyle: { color: colors.rule } }
+      },
+      {
+        type: 'value',
+        name: '份额 (%)',
+        nameTextStyle: { color: colors.muted, fontSize: 10 },
+        axisLine: { show: false },
+        axisLabel: { color: colors.muted, fontSize: 11, formatter: '{value}%' },
+        splitLine: { show: false }
+      }
+    ],
+    series: [
+      {
+        name: '交易量（十亿美元）',
+        type: 'bar',
+        data: [5.1, 0.405, 0.297, 0.167, 0.137, 0.067],
+        itemStyle: { color: colors.accent },
+        barWidth: '30%'
+      },
+      {
+        name: '市场份额（%）',
+        type: 'line',
+        yAxisIndex: 1,
+        smooth: true,
+        data: [80.7, 6.4, 4.7, 2.6, 2.1, 1.0],
+        lineStyle: { color: colors.accent2, width: 2 },
+        itemStyle: { color: colors.accent2 },
+        symbol: 'circle',
+        symbolSize: 6
+      }
+    ]
+  });
+
   // 响应式
-  function resizeAll() { c1.resize(); c2.resize(); c3.resize(); c4.resize(); }
+  function resizeAll() { c1.resize(); c2.resize(); c3.resize(); c4.resize(); c5.resize(); }
   window.addEventListener('resize', resizeAll);
 })();
