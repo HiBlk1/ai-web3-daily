@@ -179,7 +179,7 @@
     series: [{
       type: 'bar',
       data: [
-        { value: 1.42, itemStyle: { color: '#b388ff } },
+        { value: 1.42, itemStyle: { color: '#b388ff' } },
         { value: 1.66, itemStyle: { color: '#81d4fa' } },
         { value: 1.95, itemStyle: { color: colors.danger } },
         { value: 1.96, itemStyle: { color: '#ba68c8' } },
