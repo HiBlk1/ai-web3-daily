@@ -1,0 +1,10 @@
+# Large CJK font files - use system fonts (PingFang SC, Microsoft YaHei) instead
+**/_shared/fonts/NotoSansCJK*.ttc
+**/_shared/fonts/NotoSansCJK*.otf
+
+# Wrangler/Cloudflare cache
+.wrangler/
+
+# OS files
+.DS_Store
+Thumbs.db
