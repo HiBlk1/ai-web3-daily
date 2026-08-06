@@ -349,48 +349,7 @@
     }]
   });
 
-  // ---- 图表8：全球最大自贸协定贸易额对比（新内容 - MarketMind数据）----
-  var c8 = echarts.init(document.getElementById('chart-ai-kol-marketmind'), null, { renderer: 'svg' });
-  c8.setOption({
-    backgroundColor: 'transparent',
-    tooltip: {
-      trigger: 'axis',
-      axisPointer: { type: 'shadow' },
-      backgroundColor: 'rgba(31,35,48,.95)',
-      borderColor: colors.rule,
-      textStyle: { color: colors.ink, fontSize: 12 },
-      formatter: function(params) { return params[0].name + '<br/>年贸易额: ' + params[0].value + ' 万亿美元'; }
-    },
-    grid: { left: '3%', right: '8%', bottom: '3%', top: '5%', containLabel: true },
-    xAxis: {
-      type: 'value',
-      name: '万亿美元',
-      nameTextStyle: { color: colors.muted, fontSize: 10 },
-      axisLine: { show: false },
-      axisLabel: { color: colors.muted, fontSize: 11 },
-      splitLine: { lineStyle: { color: colors.rule } }
-    },
-    yAxis: {
-      type: 'category',
-      data: ['ASEAN FTA', 'CPTPP', 'USMCA', 'RCEP', 'EU'],
-      axisLine: { lineStyle: { color: colors.rule } },
-      axisLabel: { color: colors.muted, fontSize: 11 }
-    },
-    series: [{
-      type: 'bar',
-      data: [
-        { value: 0.43, itemStyle: { color: '#b388ff' } },
-        { value: 0.644, itemStyle: { color: '#81d4fa' } },
-        { value: 1.66, itemStyle: { color: colors.accent3 } },
-        { value: 2.80, itemStyle: { color: colors.accent2 } },
-        { value: 4.33, itemStyle: { color: colors.accent } }
-      ],
-      barWidth: '50%',
-      label: { show: true, position: 'right', color: colors.ink, fontSize: 11, formatter: '${c}T' }
-    }]
-  });
-
-  // ---- 图表9：比特币现货ETF近7日资金流向（修复：只保留ETF数据，不再被覆盖）----
+  // ---- 图表7：比特币现货ETF近7日资金流向（修复：只保留ETF数据，不再被覆盖）----
   var c5 = echarts.init(document.getElementById('chart-kol-cards'), null, { renderer: 'svg' });
   c5.setOption({
     backgroundColor: 'transparent',
