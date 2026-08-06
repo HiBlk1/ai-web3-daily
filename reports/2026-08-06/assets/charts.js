@@ -61,79 +61,102 @@
     },
     yAxis: {
       type: 'category',
-      data: ['SHIB', 'XRP', 'DOGE', 'SOL', 'BTC', 'ETH', 'AVAX', 'ARB', 'INJ', 'CYS'],
+      data: ['SHIB', 'XRP', 'DOGE', 'SOL', 'BNB', 'BTC', 'ETH', 'AVAX', 'ARB', 'INJ'],
       axisLine: { lineStyle: { color: colors.rule } },
       axisLabel: { color: colors.muted, fontSize: 11 }
     },
     series: [{
       type: 'bar',
       data: [
-        { value: 93.0, itemStyle: { color: colors.accent2 } },
-        { value: 4.2, itemStyle: { color: colors.accent2 } },
-        { value: 2.8, itemStyle: { color: colors.accent2 } },
-        { value: 1.8, itemStyle: { color: colors.accent2 } },
-        { value: 0.9, itemStyle: { color: colors.accent2 } },
-        { value: 0.6, itemStyle: { color: colors.accent2 } },
-        { value: 0.6, itemStyle: { color: colors.accent2 } },
+        { value: -3.2, itemStyle: { color: colors.danger } },
+        { value: -1.8, itemStyle: { color: colors.danger } },
+        { value: -0.9, itemStyle: { color: colors.danger } },
         { value: 0.8, itemStyle: { color: colors.accent2 } },
-        { value: -0.2, itemStyle: { color: colors.danger } },
-        { value: -1.5, itemStyle: { color: colors.danger } }
+        { value: 1.5, itemStyle: { color: colors.accent2 } },
+        { value: 2.4, itemStyle: { color: colors.accent2 } },
+        { value: 2.2, itemStyle: { color: colors.accent2 } },
+        { value: 3.1, itemStyle: { color: colors.accent2 } },
+        { value: 4.2, itemStyle: { color: colors.accent2 } },
+        { value: 5.8, itemStyle: { color: colors.accent2 } }
       ],
       barWidth: '55%',
       label: { show: true, position: 'right', color: colors.ink, fontSize: 11, formatter: '{c}%' }
     }]
   });
 
-  // ---- 图表3：AI资本开支趋势 ----
+  // ---- 图表3：AI模型ECI能力指数与每百万Token成本对比（新内容）----
   var c3 = echarts.init(document.getElementById('chart-ai-capex'), null, { renderer: 'svg' });
   c3.setOption({
     backgroundColor: 'transparent',
-    tooltip: { trigger: 'axis', backgroundColor: 'rgba(31,35,48,.95)', borderColor: colors.rule, textStyle: { color: colors.ink, fontSize: 12 } },
-    legend: { data: ['四大云厂商合计', 'Google'], textStyle: { color: colors.muted, fontSize: 11 }, top: 0 },
-    grid: { left: '3%', right: '4%', bottom: '3%', top: '18%', containLabel: true },
+    tooltip: {
+      trigger: 'axis',
+      backgroundColor: 'rgba(31,35,48,.95)',
+      borderColor: colors.rule,
+      textStyle: { color: colors.ink, fontSize: 12 },
+      formatter: function(params) {
+        var s = params[0].name + '<br/>';
+        params.forEach(function(p) {
+          s += p.marker + p.seriesName + ': ' + p.value + (p.seriesName.indexOf('价格') >= 0 ? ' $/M' : '') + '<br/>';
+        });
+        return s;
+      }
+    },
+    legend: { data: ['ECI能力指数', '每百万Token价格($)'], textStyle: { color: colors.muted, fontSize: 11 }, top: 0 },
+    grid: { left: '3%', right: '8%', bottom: '3%', top: '15%', containLabel: true },
     xAxis: {
       type: 'category',
-      data: ['2024', '2025', '2026E', '2027E'],
+      data: ['DeepSeek V4 Flash', 'GPT-5.6 Luna', 'GLM-5.2', 'Kimi K3', 'Claude Opus 5', 'GPT-5.6 Sol'],
       axisLine: { lineStyle: { color: colors.rule } },
-      axisLabel: { color: colors.muted, fontSize: 11 }
+      axisLabel: { color: colors.muted, fontSize: 10, interval: 0, rotate: 15 }
     },
-    yAxis: {
-      type: 'value',
-      name: '十亿美元',
-      nameTextStyle: { color: colors.muted, fontSize: 10 },
-      axisLine: { show: false },
-      axisLabel: { color: colors.muted, fontSize: 11 },
-      splitLine: { lineStyle: { color: colors.rule } }
-    },
-    series: [
+    yAxis: [
       {
-        name: '四大云厂商合计',
-        type: 'line',
-        smooth: true,
-        data: [280, 420, 730, 1000],
-        lineStyle: { color: colors.accent, width: 2 },
-        itemStyle: { color: colors.accent },
-        areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-          { offset: 0, color: 'rgba(110,168,254,0.25)' },
-          { offset: 1, color: 'rgba(110,168,254,0.02)' }
-        ]) },
-        symbol: 'circle',
-        symbolSize: 6
+        type: 'value',
+        name: 'ECI指数',
+        nameTextStyle: { color: colors.muted, fontSize: 10 },
+        axisLine: { show: false },
+        axisLabel: { color: colors.muted, fontSize: 11 },
+        splitLine: { lineStyle: { color: colors.rule } }
       },
       {
-        name: 'Google',
+        type: 'value',
+        name: '价格 ($/M)',
+        nameTextStyle: { color: colors.muted, fontSize: 10 },
+        axisLine: { show: false },
+        axisLabel: { color: colors.muted, fontSize: 11, formatter: '${value}' },
+        splitLine: { show: false }
+      }
+    ],
+    series: [
+      {
+        name: 'ECI能力指数',
+        type: 'bar',
+        data: [
+          { value: 153, itemStyle: { color: colors.accent2 } },
+          { value: 156, itemStyle: { color: colors.accent } },
+          { value: 153, itemStyle: { color: colors.accent3 } },
+          { value: 160, itemStyle: { color: '#ba68c8' } },
+          { value: 158, itemStyle: { color: colors.danger } },
+          { value: 157, itemStyle: { color: '#80cbc4' } }
+        ],
+        barWidth: '35%'
+      },
+      {
+        name: '每百万Token价格($)',
         type: 'line',
+        yAxisIndex: 1,
         smooth: true,
-        data: [65, 95, 200, 260],
-        lineStyle: { color: colors.accent2, width: 2 },
-        itemStyle: { color: colors.accent2 },
+        data: [0.14, 0.20, 1.40, 0.55, 9.00, 5.00],
+        lineStyle: { color: colors.accent3, width: 2.5 },
+        itemStyle: { color: colors.accent3 },
         symbol: 'circle',
-        symbolSize: 6
+        symbolSize: 7,
+        label: { show: true, position: 'top', color: colors.accent3, fontSize: 10, formatter: '${c}' }
       }
     ]
   });
 
-  // ---- 图表4：本周AI融资领域分布 ----
+  // ---- 图表4：本周AI融资领域分布（更新为8.6数据）----
   var c4 = echarts.init(document.getElementById('chart-ai-sector'), null, { renderer: 'svg' });
   c4.setOption({
     backgroundColor: 'transparent',
@@ -148,21 +171,44 @@
       label: { show: false },
       labelLine: { show: false },
       data: [
-        { value: 143, name: '数据标注/AI基础设施', itemStyle: { color: colors.accent2 } },
-        { value: 100, name: '大模型/通用AI', itemStyle: { color: colors.accent } },
-        { value: 2.5, name: 'AI安全/网络安全', itemStyle: { color: colors.danger } },
-        { value: 0.5, name: 'AI Agent/企业应用', itemStyle: { color: colors.accent3 } },
+        { value: 150, name: '自动驾驶/Robotaxi', itemStyle: { color: colors.accent } },
+        { value: 150, name: 'AI基础设施/数据中心', itemStyle: { color: colors.accent2 } },
+        { value: 12, name: '具身AI/Embodied AI', itemStyle: { color: colors.accent3 } },
+        { value: 2.5, name: '自动驾驶基建', itemStyle: { color: '#ba68c8' } },
+        { value: 1.5, name: 'AI Agent/企业应用', itemStyle: { color: colors.danger } },
         { value: 0.3, name: '客服/垂直应用', itemStyle: { color: '#b388ff' } }
       ]
     }]
   });
 
-  // ---- 图表4：OpenRouter周榜Top10模型Token用量 ----
+  // ---- 图表5：OpenRouter周榜Top10模型Token用量（更新数据）----
   var c4b = echarts.init(document.getElementById('chart-ai-kol-models'), null, { renderer: 'svg' });
   c4b.setOption({
     backgroundColor: 'transparent',
-    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }, backgroundColor: 'rgba(31,35,48,.95)', borderColor: colors.rule, textStyle: { color: colors.ink, fontSize: 12 }, formatter: function(params) { return params[0].name + '<br/>Token: ' + params[0].value + ' 万亿'; } },
-    grid: { left: '3%', right: '6%', bottom: '3%', top: '5%', containLabel: true },
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: { type: 'shadow' },
+      backgroundColor: 'rgba(31,35,48,.95)',
+      borderColor: colors.rule,
+      textStyle: { color: colors.ink, fontSize: 12 },
+      formatter: function(params) {
+        var growth = {
+          'Poolside Laguna S 2.1': '+583%',
+          'GPT-5.6 Luna': '+848%',
+          'MiniMax M3': '+11%',
+          'Nemotron 3 Ultra': '+14%',
+          'DeepSeek V4 Pro': '+21%',
+          'GLM 5.2': '+4%',
+          'DeepSeek V4 Flash 0731': 'NEW',
+          'MiMo-V2.5 (Xiaomi)': '+47%',
+          'Tencent Hy3': '+9%',
+          'DeepSeek V4 Flash 0423': '+10%'
+        };
+        var g = growth[params[0].name] || '';
+        return params[0].name + '<br/>Token: ' + params[0].value + ' 万亿' + (g ? ' (' + g + ')' : '');
+      }
+    },
+    grid: { left: '3%', right: '12%', bottom: '3%', top: '5%', containLabel: true },
     xAxis: {
       type: 'value',
       name: '万亿 tokens',
@@ -173,188 +219,178 @@
     },
     yAxis: {
       type: 'category',
-      data: ['Kimi K3', 'Step 3.7 Flash', 'GPT-5.6 Luna', 'MiniMax M3', 'Nemotron 3 Ultra', 'GLM 5.2', 'DeepSeek V4 Pro', 'Hy3 (Tencent)', 'MiMo-V2.5 (Xiaomi)', 'DeepSeek V4 Flash'],
+      data: ['Poolside Laguna S 2.1', 'MiniMax M3', 'Nemotron 3 Ultra', 'DeepSeek V4 Pro', 'GLM 5.2', 'GPT-5.6 Luna', 'DeepSeek V4 Flash 0731', 'MiMo-V2.5 (Xiaomi)', 'Tencent Hy3', 'DeepSeek V4 Flash 0423'],
       axisLine: { lineStyle: { color: colors.rule } },
       axisLabel: { color: colors.muted, fontSize: 10 }
     },
     series: [{
       type: 'bar',
       data: [
-        { value: 1.42, itemStyle: { color: '#b388ff' } },
-        { value: 1.66, itemStyle: { color: '#81d4fa' } },
-        { value: 1.95, itemStyle: { color: colors.danger } },
-        { value: 1.96, itemStyle: { color: '#ba68c8' } },
-        { value: 2.43, itemStyle: { color: colors.accent3 } },
-        { value: 2.89, itemStyle: { color: '#4dd0e1' } },
-        { value: 3.28, itemStyle: { color: colors.accent2 } },
-        { value: 4.82, itemStyle: { color: colors.accent3 } },
-        { value: 6.30, itemStyle: { color: colors.accent2 } },
-        { value: 7.22, itemStyle: { color: colors.accent } }
+        { value: 1.66, itemStyle: { color: '#b388ff' } },
+        { value: 1.81, itemStyle: { color: '#81d4fa' } },
+        { value: 2.33, itemStyle: { color: colors.accent3 } },
+        { value: 2.81, itemStyle: { color: '#4dd0e1' } },
+        { value: 3.00, itemStyle: { color: '#80cbc4' } },
+        { value: 3.54, itemStyle: { color: colors.danger } },
+        { value: 4.71, itemStyle: { color: '#ba68c8' } },
+        { value: 5.22, itemStyle: { color: colors.accent3 } },
+        { value: 5.36, itemStyle: { color: colors.accent2 } },
+        { value: 6.60, itemStyle: { color: colors.accent } }
       ],
       barWidth: '55%',
       label: { show: true, position: 'right', color: colors.ink, fontSize: 11, formatter: '{c}T' }
     }]
   });
 
-  // ---- 图表5：链上加密卡平台交易量与市场份额 ----
-  // ---- 图表5：LLM Stats综合智能指数Top10 ----
+  // ---- 图表6：LLM Stats数学推理能力排行榜Top10（新内容）----
   var c6 = echarts.init(document.getElementById('chart-ai-kol-leaderboard'), null, { renderer: 'svg' });
   c6.setOption({
     backgroundColor: 'transparent',
-    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }, backgroundColor: 'rgba(31,35,48,.95)', borderColor: colors.rule, textStyle: { color: colors.ink, fontSize: 12 } },
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: { type: 'shadow' },
+      backgroundColor: 'rgba(31,35,48,.95)',
+      borderColor: colors.rule,
+      textStyle: { color: colors.ink, fontSize: 12 },
+      formatter: function(params) {
+        var prices = {
+          'Claude Mythos Preview': '$15/M',
+          'Qwen3.7 Max': '$1.75/M',
+          'Gemini 3.1 Pro': '$5.00/M',
+          'Claude Opus 5': '$9.00/M',
+          'Claude Fable 5': '$18/M',
+          'GPT-5.6 Sol': '$5.00/M',
+          'Grok 4': '$3.00/M',
+          'Kimi K3': '$0.55/M',
+          'DeepSeek V4 Flash': '$0.14/M',
+          'GLM-5.2': '$1.40/M'
+        };
+        var p = prices[params[0].name] || '';
+        return params[0].name + '<br/>数学评分: ' + params[0].value + (p ? '<br/>价格: ' + p : '');
+      }
+    },
     grid: { left: '3%', right: '10%', bottom: '3%', top: '5%', containLabel: true },
     xAxis: {
       type: 'value',
-      name: '综合评分',
+      name: '数学推理评分',
       nameTextStyle: { color: colors.muted, fontSize: 10 },
       axisLine: { show: false },
       axisLabel: { color: colors.muted, fontSize: 11 },
       splitLine: { lineStyle: { color: colors.rule } },
-      max: 65
+      max: 50
     },
     yAxis: {
       type: 'category',
-      data: ['GLM-5.2', 'Gemini 3 Pro', 'Grok 4', 'Kimi K3', 'GPT-5.5', 'Claude Sonnet 5', 'Gemini 3.1 Pro', 'Claude Opus 4.7', 'GPT-5.6 Sol', 'Claude Opus 5'],
+      data: ['GLM-5.2', 'DeepSeek V4 Flash', 'Kimi K3', 'Grok 4', 'Claude Fable 5', 'Claude Opus 5', 'Gemini 3.1 Pro', 'GPT-5.6 Sol', 'Qwen3.7 Max', 'Claude Mythos Preview'],
       axisLine: { lineStyle: { color: colors.rule } },
       axisLabel: { color: colors.muted, fontSize: 10 }
     },
     series: [{
       type: 'bar',
       data: [
-        { value: 51, itemStyle: { color: '#b388ff' } },
-        { value: 52, itemStyle: { color: '#81d4fa' } },
-        { value: 53, itemStyle: { color: '#ba68c8' } },
-        { value: 55.7, itemStyle: { color: colors.accent3 } },
-        { value: 55, itemStyle: { color: '#4dd0e1' } },
-        { value: 53, itemStyle: { color: colors.accent2 } },
-        { value: 54, itemStyle: { color: '#80cbc4' } },
-        { value: 54, itemStyle: { color: colors.danger } },
-        { value: 57.7, itemStyle: { color: colors.accent } },
-        { value: 57.8, itemStyle: { color: colors.accent2 } }
+        { value: 38.5, itemStyle: { color: '#b388ff' } },
+        { value: 39.0, itemStyle: { color: '#81d4fa' } },
+        { value: 40.2, itemStyle: { color: '#ba68c8' } },
+        { value: 40.8, itemStyle: { color: colors.accent3 } },
+        { value: 41.5, itemStyle: { color: '#4dd0e1' } },
+        { value: 42.4, itemStyle: { color: colors.accent2 } },
+        { value: 43.0, itemStyle: { color: '#80cbc4' } },
+        { value: 43.5, itemStyle: { color: colors.danger } },
+        { value: 44.0, itemStyle: { color: colors.accent } },
+        { value: 47.1, itemStyle: { color: colors.accent2 } }
       ],
       barWidth: '55%',
       label: { show: true, position: 'right', color: colors.ink, fontSize: 11, formatter: '{c}' }
     }]
   });
 
-  // ---- 图表6：全球AI算力指数ECI趋势 ----
+  // ---- 图表7：EpochAI MirrorCode代码基准排行榜（新内容）----
   var c7 = echarts.init(document.getElementById('chart-ai-kol-compute'), null, { renderer: 'svg' });
   c7.setOption({
     backgroundColor: 'transparent',
-    tooltip: { trigger: 'axis', backgroundColor: 'rgba(31,35,48,.95)', borderColor: colors.rule, textStyle: { color: colors.ink, fontSize: 12 } },
-    legend: { data: ['ECI算力指数', '等效芯片数(百万)'], textStyle: { color: colors.muted, fontSize: 11 }, top: 0 },
-    grid: { left: '3%', right: '8%', bottom: '3%', top: '18%', containLabel: true },
-    xAxis: {
-      type: 'category',
-      data: ['2024 Q1', '2024 Q3', '2025 Q1', '2025 Q3', '2026 Q1', '2026 Q3'],
-      axisLine: { lineStyle: { color: colors.rule } },
-      axisLabel: { color: colors.muted, fontSize: 11 }
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: { type: 'shadow' },
+      backgroundColor: 'rgba(31,35,48,.95)',
+      borderColor: colors.rule,
+      textStyle: { color: colors.ink, fontSize: 12 },
+      formatter: function(params) { return params[0].name + '<br/>解决率: ' + params[0].value + '%'; }
     },
-    yAxis: [
-      {
-        type: 'value',
-        name: 'ECI指数',
-        nameTextStyle: { color: colors.muted, fontSize: 10 },
-        axisLine: { show: false },
-        axisLabel: { color: colors.muted, fontSize: 11 },
-        splitLine: { lineStyle: { color: colors.rule } }
-      },
-      {
-        type: 'value',
-        name: '芯片(M)',
-        nameTextStyle: { color: colors.muted, fontSize: 10 },
-        axisLine: { show: false },
-        axisLabel: { color: colors.muted, fontSize: 11 },
-        splitLine: { show: false }
-      }
-    ],
-    series: [
-      {
-        name: 'ECI算力指数',
-        type: 'line',
-        smooth: true,
-        data: [[100, 145, 210, 310, 460, 625]],
-        lineStyle: { color: colors.accent, width: 2.5 },
-        itemStyle: { color: colors.accent },
-        areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-          { offset: 0, color: 'rgba(110,168,254,0.2)' },
-          { offset: 1, color: 'rgba(110,168,254,0.01)' }
-        ]) },
-        symbol: 'circle',
-        symbolSize: 6
-      },
-      {
-        name: '等效芯片数(百万)',
-        type: 'line',
-        yAxisIndex: 1,
-        smooth: true,
-        data: [[2.8, 4.1, 5.9, 8.2, 10.5, 12.6]],
-        lineStyle: { color: colors.accent2, width: 2 },
-        itemStyle: { color: colors.accent2 },
-        symbol: 'circle',
-        symbolSize: 6
-      }
-    ]
+    grid: { left: '3%', right: '8%', bottom: '3%', top: '5%', containLabel: true },
+    xAxis: {
+      type: 'value',
+      name: '代码解决率 (%)',
+      nameTextStyle: { color: colors.muted, fontSize: 10 },
+      axisLine: { show: false },
+      axisLabel: { color: colors.muted, fontSize: 11, formatter: '{value}%' },
+      splitLine: { lineStyle: { color: colors.rule } },
+      max: 70
+    },
+    yAxis: {
+      type: 'category',
+      data: ['GPT-5.6 Sol', 'Gemini 3 Pro', 'GLM-5.2', 'Grok 4', 'Claude Opus 4.7', 'Kimi K3', 'Claude Opus 5', 'Claude Fable 5'],
+      axisLine: { lineStyle: { color: colors.rule } },
+      axisLabel: { color: colors.muted, fontSize: 10 }
+    },
+    series: [{
+      type: 'bar',
+      data: [
+        { value: 20, itemStyle: { color: colors.danger } },
+        { value: 28, itemStyle: { color: '#b388ff' } },
+        { value: 35, itemStyle: { color: '#81d4fa' } },
+        { value: 38, itemStyle: { color: colors.accent3 } },
+        { value: 42, itemStyle: { color: '#4dd0e1' } },
+        { value: 48, itemStyle: { color: '#ba68c8' } },
+        { value: 56, itemStyle: { color: colors.accent } },
+        { value: 64, itemStyle: { color: colors.accent2 } }
+      ],
+      barWidth: '55%',
+      label: { show: true, position: 'right', color: colors.ink, fontSize: 11, formatter: '{c}%' }
+    }]
   });
 
-  // ---- 图表7：五大科技巨头AI资本开支与股价涨幅对比 ----
+  // ---- 图表8：全球最大自贸协定贸易额对比（新内容 - MarketMind数据）----
   var c8 = echarts.init(document.getElementById('chart-ai-kol-marketmind'), null, { renderer: 'svg' });
   c8.setOption({
     backgroundColor: 'transparent',
-    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }, backgroundColor: 'rgba(31,35,48,.95)', borderColor: colors.rule, textStyle: { color: colors.ink, fontSize: 12 } },
-    legend: { data: ['AI资本开支(亿美元)', '股价涨幅(%)'], textStyle: { color: colors.muted, fontSize: 11 }, top: 0 },
-    grid: { left: '3%', right: '8%', bottom: '3%', top: '15%', containLabel: true },
-    xAxis: {
-      type: 'category',
-      data: ['Microsoft', 'Google', 'Amazon', 'Meta', 'Apple'],
-      axisLine: { lineStyle: { color: colors.rule } },
-      axisLabel: { color: colors.muted, fontSize: 10, interval: 0 }
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: { type: 'shadow' },
+      backgroundColor: 'rgba(31,35,48,.95)',
+      borderColor: colors.rule,
+      textStyle: { color: colors.ink, fontSize: 12 },
+      formatter: function(params) { return params[0].name + '<br/>年贸易额: ' + params[0].value + ' 万亿美元'; }
     },
-    yAxis: [
-      {
-        type: 'value',
-        name: '资本开支($B)',
-        nameTextStyle: { color: colors.muted, fontSize: 10 },
-        axisLine: { show: false },
-        axisLabel: { color: colors.muted, fontSize: 11 },
-        splitLine: { lineStyle: { color: colors.rule } }
-      },
-      {
-        type: 'value',
-        name: '涨幅(%)',
-        nameTextStyle: { color: colors.muted, fontSize: 10 },
-        axisLine: { show: false },
-        axisLabel: { color: colors.muted, fontSize: 11, formatter: '{value}%' },
-        splitLine: { show: false }
-      }
-    ],
-    series: [
-      {
-        name: 'AI资本开支(亿美元)',
-        type: 'bar',
-        data: [
-          { value: 110, itemStyle: { color: '#6ea8fe' } },
-          { value: 200, itemStyle: { color: '#6ea8fe' } },
-          { value: 85, itemStyle: { color: '#6ea8fe' } },
-          { value: 143, itemStyle: { color: '#6ea8fe' } },
-          { value: 25, itemStyle: { color: '#6ea8fe' } }
-    ],
-        barWidth: '30%'
-      },
-      {
-        name: '股价涨幅(%)',
-        type: 'line',
-        yAxisIndex: 1,
-        smooth: true,
-        data: [[38, 42, 25, 67, 18]],
-        lineStyle: { color: colors.accent2, width: 2.5 },
-        itemStyle: { color: colors.accent2 },
-        symbol: 'circle',
-        symbolSize: 7
-      }
-    ]
+    grid: { left: '3%', right: '8%', bottom: '3%', top: '5%', containLabel: true },
+    xAxis: {
+      type: 'value',
+      name: '万亿美元',
+      nameTextStyle: { color: colors.muted, fontSize: 10 },
+      axisLine: { show: false },
+      axisLabel: { color: colors.muted, fontSize: 11 },
+      splitLine: { lineStyle: { color: colors.rule } }
+    },
+    yAxis: {
+      type: 'category',
+      data: ['ASEAN FTA', 'CPTPP', 'USMCA', 'RCEP', 'EU'],
+      axisLine: { lineStyle: { color: colors.rule } },
+      axisLabel: { color: colors.muted, fontSize: 11 }
+    },
+    series: [{
+      type: 'bar',
+      data: [
+        { value: 0.43, itemStyle: { color: '#b388ff' } },
+        { value: 0.644, itemStyle: { color: '#81d4fa' } },
+        { value: 1.66, itemStyle: { color: colors.accent3 } },
+        { value: 2.80, itemStyle: { color: colors.accent2 } },
+        { value: 4.33, itemStyle: { color: colors.accent } }
+      ],
+      barWidth: '50%',
+      label: { show: true, position: 'right', color: colors.ink, fontSize: 11, formatter: '${c}T' }
+    }]
   });
 
+  // ---- 图表9：比特币现货ETF近7日资金流向（修复：只保留ETF数据，不再被覆盖）----
   var c5 = echarts.init(document.getElementById('chart-kol-cards'), null, { renderer: 'svg' });
   c5.setOption({
     backgroundColor: 'transparent',
@@ -390,56 +426,6 @@
       barWidth: '40%',
       label: { show: true, position: 'top', color: colors.muted, fontSize: 10, formatter: '{c}M' }
     }]
-  });
-  c5.setOption({
-    backgroundColor: 'transparent',
-    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }, backgroundColor: 'rgba(31,35,48,.95)', borderColor: colors.rule, textStyle: { color: colors.ink, fontSize: 12 } },
-    legend: { data: ['交易量（十亿美元）', '市场份额（%）'], textStyle: { color: colors.muted, fontSize: 11 }, top: 0 },
-    grid: { left: '3%', right: '8%', bottom: '3%', top: '15%', containLabel: true },
-    xAxis: {
-      type: 'category',
-      data: ['RedotPay', 'ether.fi', 'Cypher', 'Gnosis Pay', 'Holyheld', 'MetaMask'],
-      axisLine: { lineStyle: { color: colors.rule } },
-      axisLabel: { color: colors.muted, fontSize: 10, interval: 0, rotate: 0 }
-    },
-    yAxis: [
-      {
-        type: 'value',
-        name: '交易量 ($B)',
-        nameTextStyle: { color: colors.muted, fontSize: 10 },
-        axisLine: { show: false },
-        axisLabel: { color: colors.muted, fontSize: 11 },
-        splitLine: { lineStyle: { color: colors.rule } }
-      },
-      {
-        type: 'value',
-        name: '份额 (%)',
-        nameTextStyle: { color: colors.muted, fontSize: 10 },
-        axisLine: { show: false },
-        axisLabel: { color: colors.muted, fontSize: 11, formatter: '{value}%' },
-        splitLine: { show: false }
-      }
-    ],
-    series: [
-      {
-        name: '交易量（十亿美元）',
-        type: 'bar',
-        data: [5.1, 0.405, 0.297, 0.167, 0.137, 0.067],
-        itemStyle: { color: colors.accent },
-        barWidth: '30%'
-      },
-      {
-        name: '市场份额（%）',
-        type: 'line',
-        yAxisIndex: 1,
-        smooth: true,
-        data: [80.7, 6.4, 4.7, 2.6, 2.1, 1.0],
-        lineStyle: { color: colors.accent2, width: 2 },
-        itemStyle: { color: colors.accent2 },
-        symbol: 'circle',
-        symbolSize: 6
-      }
-    ]
   });
 
   // 响应式
