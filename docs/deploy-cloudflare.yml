@@ -1,0 +1,44 @@
+name: Deploy Redirect to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Wrangler
+        run: npm install -g wrangler@latest
+
+      - name: Deploy _redirects to Cloudflare Pages
+        run: |
+          # Create a minimal deploy directory containing only _redirects
+          # This makes Cloudflare Pages redirect ALL traffic to GitHub Pages
+          mkdir -p /tmp/cf-deploy
+          cp _redirects /tmp/cf-deploy/
+          cat /tmp/cf-deploy/_redirects
+          wrangler pages deploy /tmp/cf-deploy \
+            --project-name=ai-web3-daily \
+            --branch=main \
+            --commit-message="Redirect to GitHub Pages: ${{ github.sha }}"
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Output URLs
+        run: |
+          echo "::notice::Cloudflare Pages (redirects to GitHub): https://ai-web3-daily.pages.dev/"
+          echo "::notice::GitHub Pages (canonical): https://hiblk1.github.io/ai-web3-daily/"
